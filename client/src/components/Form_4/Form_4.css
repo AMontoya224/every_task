@@ -1,0 +1,5 @@
+.error-server{
+    color: var(--color-danger);
+    text-align: center;
+    font-size: 0.9rem;
+}

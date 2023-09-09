@@ -1,0 +1,245 @@
+.container{
+    width: 900px;
+    margin: 0 auto;
+    padding: 1rem 5rem;
+    border-radius: 0.2rem;
+    background: var(--color-white);
+    box-shadow: 0.3rem 0.3rem 0.5rem 0.1rem var(--color-table-variant);
+    transition: all 500ms ease;
+}
+.container:hover{
+    box-shadow: 0.3rem 0.3rem 0.5rem 0.1rem var(--color-table);
+}
+
+.container > div > p:hover{
+    color: var(--color-letter);
+}
+
+
+/* ------------- INPUT ------------- */
+.inp-container{
+    margin: 1.25rem auto;
+}
+
+.inp{
+    position: relative;
+    width: 100%;
+    border-radius: 0.2rem;
+    overflow: hidden;
+}
+
+.inp-label{
+    position: absolute;
+    top: 0;
+    left: 12px;
+    transform-origin: 0 0;
+    color: var(--color-letter);
+    opacity: .7;
+    transform: translate3d(0, 0, 0);
+    transition: all .2s ease;
+    pointer-events: none;
+}
+
+.inp-label-P{
+    top: 14px;
+    left: -358px;
+}
+
+.inp-label-PL{
+    top: 21px;
+    left: -373px;
+}
+
+.inp-label b{
+    font-size: 7px;
+    color: transparent;
+}
+
+.inp-focus{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.inp-input{
+    appearance: none;
+    width: 100%;
+    border: 0;
+    padding: 19px 12px 3px 12px;
+    border-radius: 2px;
+    background: rgba(0, 0, 0, .01);
+    box-shadow: var(--box-shadow);
+    transition: all 500ms ease;
+    color: var(--color-letter);
+}
+.inp-input:hover{
+    background: rgba(0, 0, 0 , .04);
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .5);
+}
+  
+.inp-input:not(:placeholder-shown) + .inp-label{
+    color: var(--color-letter);
+    transform: translate3d(0, -17px, 0) scale(.75);
+}
+.inp-input:focus{
+    outline: none;
+    background: rgba(0, 0, 0 , .09);
+    box-shadow: inset 0 -2px 0 var(--color-primary);
+}
+
+.inp-input:focus + .inp-label{
+    color: var(--color-primary);
+    transform: translate3d(0, -17px, 0) scale(.75);
+}
+
+.inp-input:focus + .inp-label + .inp-focus{
+    transform: scaleX(1);
+    transition: all 500ms ease;
+}
+
+.inp-input-L{
+    width: 96%;
+}
+
+.inp-textarea{
+    height: 100px;
+}
+
+.inp-label-textarea{
+    top: -87px;
+}
+
+.inp-icons{
+    margin-left: 0.5rem;
+    cursor: pointer;
+}
+
+.inp-error{
+    display: block;
+    text-align: right;
+    font-size: 0.8rem;
+    color: var(--color-danger);
+}
+
+.error-server{
+    color: var(--color-danger);
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.select-container > select{
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    border-radius: 3px;
+    font-family: 'Poppins', sans-serif;
+    background: rgba(0, 0, 0, .04);
+    box-shadow: var(--box-shadow);
+    padding: 8px;
+    color: var(--color-letter);
+    opacity: .7;
+    transition: all 500ms ease;
+    cursor: pointer;
+}
+.select-container > select:hover{
+    background: rgba(0, 0, 0, .07);
+    box-shadow: inset 0 -2px 0 var(--color-primary);
+    opacity: .9;
+}
+
+.submit{
+    color: var(--color-white);
+    background: var(--color-primary);
+    font-size: 1rem;
+    border-radius: 2px;
+    margin: 1rem 0;
+    border: none;
+    padding: 1rem 0;
+    width: 100%;
+    cursor: pointer;
+    transition: all 500ms ease;
+}
+.submit:hover{
+    background: var(--color-primary-variant);
+}
+
+.not-submit{
+    background: var(--color-primary-variant);
+    cursor: default;
+}
+
+.container-profile{
+    width: 100%;
+    margin: 10px auto;
+}
+
+.btn-profile{
+    border: none;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+}
+
+.picture-profile{
+    width: 180px;
+    opacity: 0.5;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 5%;
+}
+.picture-profile:hover{
+    opacity: 1;
+}
+.picture-profile-active{
+    border: 2px solid goldenrod;
+    opacity: 1;
+}
+
+.container-server{
+    background: rgba(189, 189, 189, 0.85);
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+}
+
+.sub-server{
+    width: 500px;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 3%;
+    background: var(--color-white);
+    opacity: 1;
+}
+
+.close-server{
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-danger);
+    margin: 5px;
+}
+.close-server:hover{
+    color: var(--color-danger-variant);
+}
+
+.title-server{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+/* ------------- MEDIA QUERIES ------------- */
+@media screen and (max-width: 500px) {
+
+}

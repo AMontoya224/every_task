@@ -1,0 +1,5 @@
+.tasks{
+    border-bottom: 2px solid var(--color-dark-variant) ;
+    padding-bottom: 50px;
+    margin-bottom: 40px;
+}

@@ -1,0 +1,7 @@
+.information{
+    margin: 0 200px;
+}
+
+.information > p{
+    margin: 20px 0;
+}

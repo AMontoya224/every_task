@@ -1,0 +1,6 @@
+.inp-available{
+    display: block;
+    text-align: right;
+    font-size: 0.8rem;
+    color: var(--color-sucess);
+}

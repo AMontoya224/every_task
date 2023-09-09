@@ -1,0 +1,15 @@
+.login{
+    width: 1200px;
+    margin: 10px auto;
+}
+
+.login > p{
+    margin-bottom: 1.5rem;
+}
+
+.link{
+    color: var(--color-primary);
+}
+.link:hover{
+    color: var(--color-primary-variant);
+}

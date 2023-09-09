@@ -1,0 +1,16 @@
+.usersAll{
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.user-container{
+    width: 300px;
+    border: 1px solid var(--color-letter);
+    cursor: pointer;
+    display:inline-block;
+}
+
+.user-container > img{
+    width: 150px;
+    border-radius: 50%;
+}

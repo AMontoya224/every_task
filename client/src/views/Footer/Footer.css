@@ -1,0 +1,12 @@
+.footer{
+    width: 100%;
+    padding: 100px;
+    height: 200px;
+    box-shadow: 0.2rem 0.2rem 0.5rem 0.5rem var(--color-table);
+    margin-top: 4rem;
+    padding-top: 1rem;
+}
+
+.footer > h3{
+    margin: 20px;
+}
