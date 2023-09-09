@@ -15,6 +15,6 @@ app.use( '/api/tasks', validateToken, TaskRouter );
 app.use( '/api/activities', validateToken, ActivityRouter);
 
 
-app.listen( 7800, () => {
-    console.log( 'Listening at Port 7800' );
+app.listen( process.env.PORT, () => {
+    console.log( 'Listening at Port ' + process.env.PORT );
 });
