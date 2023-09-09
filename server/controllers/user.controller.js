@@ -1,9 +1,9 @@
 const bcrypt = require( 'bcrypt' );
 const res = require( 'express/lib/response' );
 const { render } = require( 'express/lib/response' );
-const saltRound = 10;
 const jwt = require( 'jsonwebtoken' );
-const secret = 'This is secret';
+const secret = process.env.JWT_SECRET;
+const saltRound = process.env.JWT_SALT;
 const User = require( './../models/user.model' );
 const nodemailer = require('nodemailer');
 

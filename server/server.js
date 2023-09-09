@@ -1,5 +1,6 @@
 const express = require( 'express' );
 const cors = require( 'cors' );
+require("dotenv").config();
 require( './config/mongoose.config' );
 const validateToken = require( './util/validateToken' );
 const app = express();
