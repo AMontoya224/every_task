@@ -5,6 +5,7 @@ import Form_4 from '../../components/Form_4/Form_4';
 
 
 function AddTask( props ){
+    const { url } = props;
     const [serverTask, setServerTask] = useState( ' ' );
 
     const onSubmitTask = taskNew => {
@@ -18,7 +19,7 @@ function AddTask( props ){
               'api-token' : localStorage.getItem( 'token' )
             }
         };
-        axios.post( 'http://localhost:7800/api/tasks/new', task, config )
+        axios.post( `${url}/api/tasks/new`, task, config )
             .then( () => {
                 setServerTask( ' ' );
                 props.history.push( '/home' );

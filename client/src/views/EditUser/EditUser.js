@@ -5,6 +5,7 @@ import Form_1 from '../../components/Form_1/Form_1';
 
 
 function EditUser( props ){
+    const { url } = props;
     const [serverUpdateError, setServerUpdateError] = useState( ' ' );
     const [code, setCode] = useState( 0 );
 
@@ -22,7 +23,7 @@ function EditUser( props ){
             phone,
             password
         };
-        axios.put( `http://localhost:7800/api/users/${JSON.parse( localStorage.getItem( 'user' ) ).userName}/update`, userUpdate, config )
+        axios.put( `${url}/api/users/${JSON.parse( localStorage.getItem( 'user' ) ).userName}/update`, userUpdate, config )
             .then( res => {
                 setServerUpdateError( ' ' );
                 localStorage.setItem( 'user', JSON.stringify( res.data ) );
@@ -41,7 +42,7 @@ function EditUser( props ){
             <h1>
                 Edit Account
             </h1>
-            {( JSON.parse( localStorage.getItem( 'user' ) ).email ) && <Form_1 onSubmitProp={onUpdateUser} initialFirstName={JSON.parse( localStorage.getItem( 'user' ) ).firstName} initialLastName={JSON.parse( localStorage.getItem( 'user' ) ).lastName} 
+            {( JSON.parse( localStorage.getItem( 'user' ) ).email ) && <Form_1 url={url} onSubmitProp={onUpdateUser} initialFirstName={JSON.parse( localStorage.getItem( 'user' ) ).firstName} initialLastName={JSON.parse( localStorage.getItem( 'user' ) ).lastName} 
                                         initialUsertName={JSON.parse( localStorage.getItem( 'user' ) ).userName} initialPhone={JSON.parse( localStorage.getItem( 'user' ) ).phone}/>}
         </div>
     );

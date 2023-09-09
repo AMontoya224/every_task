@@ -8,7 +8,7 @@ import Form_2 from '../../components/Form_2/Form_2';
 
 
 function Register( props ){
-    const {onToken} = props;
+    const { onToken, url } = props;
     const [user, setUser] = useState( '' );
     const [serverEmail, setServerEmail] = useState( ' ' );
     const [code, setCode] = useState( 0 );
@@ -17,7 +17,7 @@ function Register( props ){
 
     const onSubmitEmail = userNew => {
         const {email, country} = userNew;
-        axios.get( `http://localhost:7800/api/users/register/email/${email}` )
+        axios.get( `${url}/api/users/register/email/${email}` )
             .then( res => {
                 if( res.request.statusText === 'Send code to email.' ){
                     setUser( {email, country} );
@@ -68,7 +68,7 @@ function Register( props ){
             password,
             picture
         }
-        axios.post( 'http://localhost:7800/api/users/register', userCreate )
+        axios.post( `${url}/api/users/register`, userCreate )
             .then( res => {
                 localStorage.setItem( 'token', res.data.token );
                 localStorage.setItem( 'user', JSON.stringify( res.data.userCreated ) );
@@ -92,7 +92,7 @@ function Register( props ){
                 ( bar === 0 ) ? <Form_0 onSubmitProp={onSubmitEmail} serverValidation={serverEmail} onSubmitCode={onSubmitCodeForm} 
                                         onClose={onSubmitClose} initialEmail={''} initialCountry={''}/> : 
                 ( bar === 1 ) ? <Form_1 onSubmitProp={onSubmitUser} initialFirstName={''} initialLastName={''} 
-                                        initialUsertName={''} initialPhone={''}/> :
+                                        initialUsertName={''} initialPhone={''} url={url}/> :
                                 <Form_2 onSubmitProp={onSubmitCreate} serverValidation={serverCreateError} initialPicture={''}/>
             }
             <p>

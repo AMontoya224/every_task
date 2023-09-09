@@ -5,6 +5,7 @@ import Form_4 from '../../components/Form_4/Form_4';
 
 
 function EditTask( props ){
+    const { url } = props;
     const [task, setTask] = useState( ' ' );
     const [serverTask, setServerTask] = useState( ' ' );
 
@@ -14,7 +15,7 @@ function EditTask( props ){
                 'api-token' : localStorage.getItem( 'token' )
             }
         };
-        axios.get( `http://localhost:7800/api/tasks/${props.match.params._id}`, config )
+        axios.get( `${url}/api/tasks/${props.match.params._id}`, config )
             .then( res => {
                 setTask( res.data );
             })
@@ -27,7 +28,7 @@ function EditTask( props ){
               'api-token' : localStorage.getItem( 'token' )
             }
         };
-        axios.put( `http://localhost:7800/api/tasks/${props.match.params._id}/update`, taskNew, config )
+        axios.put( `${url}/api/tasks/${props.match.params._id}/update`, taskNew, config )
             .then( () => {
                 setServerTask( ' ' );
                 props.history.push( '/home' );

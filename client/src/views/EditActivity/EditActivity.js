@@ -5,6 +5,7 @@ import Form_5 from '../../components/Form_5/Form_5';
 
 
 function EditActivity( props ){
+    const { url } = props;
     const [activity, setActivity] = useState( ' ' );
     const [serverActivity, setServerActivity] = useState( ' ' );
 
@@ -14,7 +15,7 @@ function EditActivity( props ){
                 'api-token' : localStorage.getItem( 'token' )
             }
         };
-        axios.get( `http://localhost:7800/api/activities/${props.match.params._id}`, config )
+        axios.get( `${url}/api/activities/${props.match.params._id}`, config )
             .then( res => {
                 setActivity( res.data );
             })
@@ -27,7 +28,7 @@ function EditActivity( props ){
               'api-token' : localStorage.getItem( 'token' )
             }
         };
-        axios.put( `http://localhost:7800/api/activities/${props.match.params._id}/update`, activityNew, config )
+        axios.put( `${url}/api/activities/${props.match.params._id}/update`, activityNew, config )
             .then( () => {
                 setServerActivity( ' ' );
                 props.history.push( '/home' );

@@ -5,6 +5,7 @@ import Form_2 from '../../components/Form_2/Form_2';
 
 
 function EditPicture( props ){
+    const { url } = props;
     const [serverCreateError, setServerCreateError] = useState( ' ' );
 
     const onUpdateActivity = userNew => {
@@ -17,7 +18,7 @@ function EditPicture( props ){
         const userUpdate = {
             picture
         };
-        axios.put( `http://localhost:7800/api/users/${JSON.parse( localStorage.getItem( 'user' ) ).userName}/update`, userUpdate, config )
+        axios.put( `${url}/api/users/${JSON.parse( localStorage.getItem( 'user' ) ).userName}/update`, userUpdate, config )
             .then( res => {
                 setServerCreateError( ' ' );
                 localStorage.setItem( 'user', JSON.stringify( res.data ) );

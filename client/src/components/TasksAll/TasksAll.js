@@ -5,7 +5,7 @@ import './TasksAll.css';
 
 
 function TasksAll( props ){
-    const {onTasks} = props;
+    const {onTasks, url} = props;
     const [tasks, setTasks] = useState( [] );
     
 
@@ -18,7 +18,7 @@ function TasksAll( props ){
         const taskNew = {
             status : !status
         };
-        axios.put( `http://localhost:7800/api/tasks/${_id}/update`, taskNew, config )
+        axios.put( `${url}/api/tasks/${_id}/update`, taskNew, config )
             .then( () => {} )
             .catch( err => {
                 try{
@@ -38,7 +38,7 @@ function TasksAll( props ){
                     'api-token' : localStorage.getItem( 'token' )
                 }
             };
-            axios.delete( `http://localhost:7800/api/tasks/${_id}/delete`, config )
+            axios.delete( `${url}/api/tasks/${_id}/delete`, config )
         }
     };
 
@@ -49,7 +49,7 @@ function TasksAll( props ){
             }
         };
         const userName = JSON.parse( localStorage.getItem( 'user' ) ).userName;
-        axios.get( `http://localhost:7800/api/users/${userName}`, config )
+        axios.get( `${url}/api/users/${userName}`, config )
             .then( res => {
                 setTasks( res.data.tasks );
                 onTasks( res.data.tasks );

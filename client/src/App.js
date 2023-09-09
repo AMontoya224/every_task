@@ -27,6 +27,7 @@ function App() {
   const [sideBar, setSideBar] = useState( false );
   const [tasks, setTasks] = useState( [] );
   const [activities, setActivities] = useState( [] );
+  const url = 'https://every-task.onrender.com';
 
   const onToken = tokenNew => {
     setToken( tokenNew );
@@ -91,20 +92,20 @@ function App() {
         {token === null ? <></> : <Right/>}
         <Switch>
           <Route exact path="/" render={ routeProps => <Information {...routeProps} />}/>
-          <Route exact path="/home" render={ routeProps => <Home onTasks={onTasks} onActivities={onActivities} {...routeProps} />}/>
-          <Route exact path="/editTask/:_id" render={ routeProps => <EditTask {...routeProps} />}/>
-          <Route exact path="/editActivity/:_id" render={ routeProps => <EditActivity {...routeProps} />}/>
-          <Route exact path="/register" render={ routeProps => <Register onToken={onToken} {...routeProps} />}/>
-          <Route exact path="/login" render={ routeProps => <Login onToken={onToken} {...routeProps} />}/>
-          <Route exact path="/profile" render={ routeProps => <Profile {...routeProps} />}/>
-          <Route exact path="/editPicture" render={ routeProps => <EditPicture {...routeProps} />}/>
-          <Route exact path="/editAccount" render={ routeProps => <EditAccount {...routeProps} />}/>
-          <Route exact path="/editUser" render={ routeProps => <EditUser {...routeProps} />}/>
-          <Route exact path="/addTask" render={ routeProps => <AddTask {...routeProps} />}/>
-          <Route exact path="/addActivity" render={ routeProps => <AddActivity {...routeProps} />}/>
-          <Route exact path="/addChat" render={ routeProps => <AddChat {...routeProps} />}/>
-          <Route exact path="/tasks" render={ routeProps => <><h1>Tasks All</h1><TasksAll onTasks={onTasks} {...routeProps} /></>}/>
-          <Route exact path="/activities" render={ routeProps => <><h1>Activities All</h1><ActivitiesAll onActivities={onActivities} {...routeProps} /></>}/>
+          <Route exact path="/home" render={ routeProps => <Home onTasks={onTasks} onActivities={onActivities} url={url} {...routeProps} />}/>
+          <Route exact path="/editTask/:_id" render={ routeProps => <EditTask url={url} {...routeProps} />}/>
+          <Route exact path="/editActivity/:_id" render={ routeProps => <EditActivity url={url} {...routeProps} />}/>
+          <Route exact path="/register" render={ routeProps => <Register onToken={onToken} url={url} {...routeProps} />}/>
+          <Route exact path="/login" render={ routeProps => <Login onToken={onToken} url={url} {...routeProps} />}/>
+          <Route exact path="/profile" render={ routeProps => <Profile url={url} {...routeProps} />}/>
+          <Route exact path="/editPicture" render={ routeProps => <EditPicture url={url} {...routeProps} />}/>
+          <Route exact path="/editAccount" render={ routeProps => <EditAccount url={url} {...routeProps} />}/>
+          <Route exact path="/editUser" render={ routeProps => <EditUser url={url} {...routeProps} />}/>
+          <Route exact path="/addTask" render={ routeProps => <AddTask url={url} {...routeProps} />}/>
+          <Route exact path="/addActivity" render={ routeProps => <AddActivity url={url} {...routeProps} />}/>
+          <Route exact path="/addChat" render={ routeProps => <AddChat url={url} {...routeProps} />}/>
+          <Route exact path="/tasks" render={ routeProps => <><h1>Tasks All</h1><TasksAll onTasks={onTasks} url={url} {...routeProps} /></>}/>
+          <Route exact path="/activities" render={ routeProps => <><h1>Activities All</h1><ActivitiesAll onActivities={onActivities} url={url} {...routeProps} /></>}/>
         </Switch>
         <Footer/>
       </BrowserRouter>

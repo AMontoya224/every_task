@@ -4,7 +4,7 @@ import './Form_1.css';
 
 
 function Form_1( props ){
-    const {onSubmitProp, initialFirstName, initialLastName, initialUsertName, initialPhone } = props;
+    const {onSubmitProp, initialFirstName, initialLastName, initialUsertName, initialPhone, url } = props;
     const [firstName, setFirstName] = useState( initialFirstName );
     const [lastName, setLastName] = useState( initialLastName );
     const [userName, setUserName] = useState( initialUsertName );
@@ -42,7 +42,7 @@ function Form_1( props ){
     const handleUserName = e => {
         setUserName( e.target.value );
         ( !( e.target.value.length === 0 || e.target.value.length >= 7 ) ) ? setUserNameError( 'The user name must be at least 7 characters long.' ) :
-        axios.get( `http://localhost:7800/api/users/register/userName/${e.target.value}` )
+        axios.get( `${url}/api/users/register/userName/${e.target.value}` )
             .then( res =>{
                 console.log( res.data );
                 if( res.data === null ){

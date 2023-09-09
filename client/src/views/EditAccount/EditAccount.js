@@ -5,6 +5,7 @@ import Form_0 from '../../components/Form_0/Form_0';
 
 
 function EditAccount( props ){
+    const { url } = props;
     const [serverUpdateError, setServerUpdateError] = useState( ' ' );
     const [code, setCode] = useState( 0 );
 
@@ -19,7 +20,7 @@ function EditAccount( props ){
             email,
             country
         };
-        axios.put( `http://localhost:7800/api/users/${JSON.parse( localStorage.getItem( 'user' ) ).userName}/update`, userUpdate, config )
+        axios.put( `${url}/api/users/${JSON.parse( localStorage.getItem( 'user' ) ).userName}/update`, userUpdate, config )
             .then( res => {
                 setServerUpdateError( ' ' );
                 localStorage.setItem( 'user', JSON.stringify( res.data ) );

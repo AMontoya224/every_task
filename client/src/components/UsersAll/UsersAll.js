@@ -5,6 +5,7 @@ import './UsersAll.css';
 
 
 function UsersAll( props ){
+    const {url} = props;
     const [users, setUsers] = useState( [] );
 
     useEffect( () => {
@@ -13,7 +14,7 @@ function UsersAll( props ){
                 'api-token' : localStorage.getItem( 'token' )
             }
         };
-        axios.get( `http://localhost:7800/api/users/all`, config )
+        axios.get( `${url}/api/users/all`, config )
             .then( res => {
                 setUsers( res.data );
             })

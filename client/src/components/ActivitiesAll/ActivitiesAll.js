@@ -5,7 +5,7 @@ import './ActivitiesAll.css';
 
 
 function ActivitiesAll( props ){
-    const {onActivities} = props;
+    const {onActivities, url} = props;
     const [activities, setActivities] = useState( [] );
 
     const handleCheck = ( _id, status ) => {
@@ -17,7 +17,7 @@ function ActivitiesAll( props ){
         const activityNew = {
             status : !status
         };
-        axios.put( `http://localhost:7800/api/activities/${_id}/update`, activityNew, config )
+        axios.put( `${url}/api/activities/${_id}/update`, activityNew, config )
             .then( () => {} )
             .catch( err => {
                 try{
@@ -37,7 +37,7 @@ function ActivitiesAll( props ){
                     'api-token' : localStorage.getItem( 'token' )
                 }
             };
-            axios.delete( `http://localhost:7800/api/activities/${_id}/delete`, config )
+            axios.delete( `${url}/api/activities/${_id}/delete`, config )
         }
     };
 
@@ -48,7 +48,7 @@ function ActivitiesAll( props ){
             }
         };
         const userName = JSON.parse( localStorage.getItem( 'user' ) ).userName;
-        axios.get( `http://localhost:7800/api/users/${userName}`, config )
+        axios.get( `${url}/api/users/${userName}`, config )
             .then( res => {
                 setActivities( res.data.activities );
                 onActivities( res.data.activities );

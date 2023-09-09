@@ -6,11 +6,11 @@ import Form_3 from '../../components/Form_3/Form_3';
 
 
 function Login( props ){
-    const {onToken} = props;
+    const { onToken, url } = props;
     const [serverLogin, setServerLogin] = useState( ' ' );
 
     const onSubmitLogin = userNew => {
-        axios.post( 'http://localhost:7800/api/users/login', userNew )
+        axios.post( `${url}/api/users/login`, userNew )
             .then( res => {
                 if( res.request.statusText === 'Valid credentials.' ){
                     localStorage.setItem( 'token', res.data.token );

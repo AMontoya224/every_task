@@ -6,8 +6,8 @@ function Form_2( props ){
     const {onSubmitProp, serverValidation, initialPicture} = props;
     const [picture, setPicture] = useState( initialPicture );
 
-    function handlePicture( url ){
-        setPicture( url );
+    function handlePicture( e ){
+        setPicture( e );
     };
 
     const onSubmitHandler = e => {

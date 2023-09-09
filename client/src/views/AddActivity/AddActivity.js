@@ -5,6 +5,7 @@ import Form_5 from '../../components/Form_5/Form_5';
 
 
 function AddActivity( props ){
+    const { url } = props;
     const [serverActivity, setServerActivity] = useState( ' ' );
 
     const onSubmitActivity = activityNew => {
@@ -19,7 +20,7 @@ function AddActivity( props ){
               'api-token' : localStorage.getItem( 'token' )
             }
         };
-        axios.post( 'http://localhost:7800/api/activities/new', activity, config )
+        axios.post( `${url}/api/activities/new`, activity, config )
             .then( () => {
                 setServerActivity( ' ' );
                 props.history.push( '/home' );
