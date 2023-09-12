@@ -2,7 +2,7 @@ import React from 'react';
 import './Information.css';
 
 
-function Information( props ){
+function Information( ){
     return (
         <div className='information'>
             <h1>

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import './Form_3.css';
+import './Form3.css';
 
 
-function Form_3( props ){
+function Form3( props ){
     const {onSubmitProp, serverValidation, onClose} = props;
     const [userName, setUserName] = useState( '' );
     const [password, setPassword] = useState( '' );
@@ -84,4 +84,4 @@ function Form_3( props ){
     );
 };
 
-export default Form_3;
+export default Form3;

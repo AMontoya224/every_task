@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import './Form_2.css';
+import './Form2.css';
 
 
-function Form_2( props ){
+function Form2( props ){
     const {onSubmitProp, serverValidation, initialPicture} = props;
     const [picture, setPicture] = useState( initialPicture );
 
@@ -88,4 +88,4 @@ function Form_2( props ){
     );
 };
 
-export default Form_2;
+export default Form2;

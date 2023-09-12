@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import './EditAccount.css';
-import Form_0 from '../../components/Form_0/Form_0';
+import Form0 from '../../components/Form0/Form0';
 
 
 function EditAccount( props ){
     const { url } = props;
     const [serverUpdateError, setServerUpdateError] = useState( ' ' );
-    const [code, setCode] = useState( 0 );
+    //const [code, setCode] = useState( 0 );
 
     const onUpdateEmail = userNew => {
         const config = {
@@ -27,16 +27,16 @@ function EditAccount( props ){
                 props.history.push( '/profile' );
             })
             .catch( err => {
-                if( err.response.statusText === 'Not authorized' ){
+                if( err.data.statusText === 'Not authorized' ){
                     props.history.push( '/login' );
                 };
-                setServerUpdateError( err.response.statusText );
+                setServerUpdateError( err.data.statusText );
             })
     };
 
     const onSubmitCodeForm = codeNew => {
         const {codeForm} = codeNew;
-        if( codeForm === code ){
+        if( codeForm === 0 ){
             setServerUpdateError( ' ' );
         }
         else{
@@ -53,7 +53,7 @@ function EditAccount( props ){
             <h1>
                 Edit Account
             </h1>
-            {( JSON.parse( localStorage.getItem( 'user' ) ).email ) && <Form_0 onSubmitProp={onUpdateEmail} serverValidation={serverUpdateError} onSubmitCode={onSubmitCodeForm} 
+            {( JSON.parse( localStorage.getItem( 'user' ) ).email ) && <Form0 onSubmitProp={onUpdateEmail} serverValidation={serverUpdateError} onSubmitCode={onSubmitCodeForm} 
             onClose={onSubmitClose} initialEmail={JSON.parse( localStorage.getItem( 'user' ) ).email} initialCountry={JSON.parse( localStorage.getItem( 'user' ) ).country}/>}
         </div>
     );

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './EditTask.css';
-import Form_4 from '../../components/Form_4/Form_4';
+import Form4 from '../../components/Form4/Form4';
 
 
 function EditTask( props ){
@@ -34,10 +34,10 @@ function EditTask( props ){
                 props.history.push( '/home' );
             })
             .catch( err => {
-                if( err.response.statusText === 'Not authorized' ){
+                if( err.data.statusText === 'Not authorized' ){
                     props.history.push( '/login' );
                 };
-                setServerTask( err.response.statusText );
+                setServerTask( err.data.statusText );
             })
     };
 
@@ -46,7 +46,7 @@ function EditTask( props ){
             <h1>
                 Edit task
             </h1>
-            {(task.title) && <Form_4 onSubmitProp={onUpdateTask} serverValidation={serverTask} 
+            {(task.title) && <Form4 onSubmitProp={onUpdateTask} serverValidation={serverTask} 
                                      initialTitle={task.title} initialContents={task.contents}/>}
         </div>
     );

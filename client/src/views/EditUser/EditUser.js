@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import axios from 'axios';
 import './EditUser.css';
-import Form_1 from '../../components/Form_1/Form_1';
+import Form1 from '../../components/Form1/Form1';
 
 
 function EditUser( props ){
     const { url } = props;
-    const [serverUpdateError, setServerUpdateError] = useState( ' ' );
-    const [code, setCode] = useState( 0 );
+    //const [serverUpdateError, setServerUpdateError] = useState( ' ' );
+    //const [code, setCode] = useState( 0 );
 
     const onUpdateUser = userNew => {
         const config = {
@@ -25,15 +25,15 @@ function EditUser( props ){
         };
         axios.put( `${url}/api/users/${JSON.parse( localStorage.getItem( 'user' ) ).userName}/update`, userUpdate, config )
             .then( res => {
-                setServerUpdateError( ' ' );
+                //setServerUpdateError( ' ' );
                 localStorage.setItem( 'user', JSON.stringify( res.data ) );
                 props.history.push( '/profile' );
             })
             .catch( err => {
-                if( err.response.statusText === 'Not authorized' ){
+                if( err.data.statusText === 'Not authorized' ){
                     props.history.push( '/login' );
                 };
-                setServerUpdateError( err.response.statusText );
+                //setServerUpdateError( err.data.statusText );
             })
     };
 
@@ -42,7 +42,7 @@ function EditUser( props ){
             <h1>
                 Edit Account
             </h1>
-            {( JSON.parse( localStorage.getItem( 'user' ) ).email ) && <Form_1 url={url} onSubmitProp={onUpdateUser} initialFirstName={JSON.parse( localStorage.getItem( 'user' ) ).firstName} initialLastName={JSON.parse( localStorage.getItem( 'user' ) ).lastName} 
+            {( JSON.parse( localStorage.getItem( 'user' ) ).email ) && <Form1 url={url} onSubmitProp={onUpdateUser} initialFirstName={JSON.parse( localStorage.getItem( 'user' ) ).firstName} initialLastName={JSON.parse( localStorage.getItem( 'user' ) ).lastName} 
                                         initialUsertName={JSON.parse( localStorage.getItem( 'user' ) ).userName} initialPhone={JSON.parse( localStorage.getItem( 'user' ) ).phone}/>}
         </div>
     );

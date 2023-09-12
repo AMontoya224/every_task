@@ -22,7 +22,7 @@ function TasksAll( props ){
             .then( () => {} )
             .catch( err => {
                 try{
-                    if( err.response.statusText === 'Not authorized' ){
+                    if( err.data.statusText === 'Not authorized' ){
                         props.history.push( '/login' );
                     };
                 }

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import './EditPicture.css';
-import Form_2 from '../../components/Form_2/Form_2';
+import Form2 from '../../components/Form2/Form2';
 
 
 function EditPicture( props ){
@@ -25,10 +25,10 @@ function EditPicture( props ){
                 props.history.push( '/profile' );
             })
             .catch( err => {
-                if( err.response.statusText === 'Not authorized' ){
+                if( err.data.statusText === 'Not authorized' ){
                     props.history.push( '/login' );
                 };
-                setServerCreateError( err.response.statusText );
+                setServerCreateError( err.data.statusText );
             })
     };
 
@@ -37,7 +37,7 @@ function EditPicture( props ){
             <h1>
                 Edit profile picture
             </h1>
-            {( JSON.parse( localStorage.getItem( 'user' ) ).picture ) && <Form_2 onSubmitProp={onUpdateActivity} 
+            {( JSON.parse( localStorage.getItem( 'user' ) ).picture ) && <Form2 onSubmitProp={onUpdateActivity} 
             serverValidation={serverCreateError} initialPicture={JSON.parse( localStorage.getItem( 'user' ) ).picture}/>}
         </div>
     );

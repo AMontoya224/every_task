@@ -5,10 +5,7 @@ const {Activity} = require( './../models/activity.model' );
 const getAllActivities = ( request, response ) => {
     Activity.find()
         .then( Activities => response.status( 200 ).json( Activities ) )
-        .catch( err => {
-            response.statusMessage = 'There was an error executing the find.';
-            return response.status( 400 ).json( err ) 
-        });
+        .catch( err => { return response.status( 400 ).json({err, statusText:'There was an error executing the find.'}) });
 };
 
 const getActivity = ( request, response ) => {
@@ -16,10 +13,7 @@ const getActivity = ( request, response ) => {
 
     Activity.findOne( {_id} )
     .then( Activity => response.status( 200 ).json( Activity ) )
-    .catch( err => {
-        response.statusMessage = 'There was an error executing the findOne.';
-        return response.status( 400 ).json( err ) 
-    });
+    .catch( err => { return response.status( 400 ).json({err, statusText:'There was an error executing the findOne.'}) });
 };
 
 const createActivity = ( request, response ) => {
@@ -28,8 +22,7 @@ const createActivity = ( request, response ) => {
     User.find( {userName} )
         .then( userFound => {
             if( userFound === null ){
-                response.statusMessage = 'User not found.';
-                return response.status( 201 ).end();
+                return response.status( 201 ).json({statusText:'User not found.'})
             }
             else{
                 const activityNew = {
@@ -46,16 +39,10 @@ const createActivity = ( request, response ) => {
                                 return response.status( 201 ).json( activityCreated );
                             });
                     })
-                    .catch( err => {
-                        response.statusMessage = 'There was an error executing the create.';
-                        return response.status( 400 ).json( err );
-                    });
+                    .catch( err => { return response.status( 400 ).json({err, statusText:'There was an error executing the create.'}) });
             }
         })
-        .catch( err => {
-            response.statusMessage = "Hubo un error al ejecutar el insert. " + err;
-            return response.status( 400 ).end();
-        });
+        .catch( err => { return response.status( 400 ).json({err, statusText:'Hubo un error al ejecutar el insert.'}) });
 };
 
 const updateActivity = ( request, response ) => {
@@ -63,10 +50,7 @@ const updateActivity = ( request, response ) => {
 
     Activity.findOneAndUpdate( {_id}, request.body, { runValidators: true, new: true } )
         .then( activityUpdate => response.status( 202 ).json( activityUpdate ) )
-        .catch( err => {
-            response.statusMessage = 'There was an error executing the update.';
-            return response.status( 400 ).json( err ) 
-        });
+        .catch( err => { return response.status( 400 ).json({err, statusText:'There was an error executing the update.'}) });
     /* Pendiente por hacer: actualizar listado de Usuarios */
 };
 
@@ -75,10 +59,7 @@ const deleteActivity = ( request, response ) => {
 
     Activity.deleteOne( {_id} )
         .then( () => response.status( 204 ).end() )
-        .catch( err => {
-            response.statusMessage = "There was an error executing the delete. ";
-            return response.status( 400 ).json( err )
-        });
+        .catch( err => { return response.status( 400 ).json({err, statusText:'There was an error executing the delete.'}) });
 };
 
 const ActivityController = {

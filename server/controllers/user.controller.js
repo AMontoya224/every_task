@@ -19,10 +19,7 @@ const transporter = nodemailer.createTransport({
 const getAllUsers = ( request, response ) => {
     User.find()
         .then( users => response.status( 200 ).json( users ) )
-        .catch( err => {
-            response.statusMessage = 'There was an error executing the find.';
-            return response.status( 400 ).json( err ) 
-        });
+        .catch( err => { return response.status( 400 ).json({err, statusText:'There was an error executing the find.'}) });
 };
 
 const getUser = ( request, response ) => {
@@ -32,10 +29,7 @@ const getUser = ( request, response ) => {
         .populate( 'tasks', ['_id', 'title', 'contents', 'status', 'created_at'])
         .populate( 'activities', ['_id', 'title', 'contents', 'date', 'status'])
         .then( user => response.status( 200 ).json( user ) )
-        .catch( err => {
-            response.statusMessage = 'There was an error executing the findOne.';
-            return response.status( 400 ).json( err ) 
-        });
+        .catch( err => { return response.status( 400 ).json({err, statusText:'There was an error executing the findOne.'}) });
 };
 
 const registerUserEmail = ( request, response ) => {
@@ -51,20 +45,14 @@ const registerUserEmail = ( request, response ) => {
                     subject: "Verification Code",
                     html: "<h3>Verification Code</h3>" + "<h1>"+codeRandom+"</h1>"
                 })
-                .then( () => {
-                    return response.status( 200 ).json( {codeRandom, statusText:'Send code to email.'} )
-                })
-                .catch( err => {
-                    return response.status( 400 ).json( {err, statusText:'Email could not be sent.'} )
-                });
+                .then( () => { return response.status( 200 ).json({codeRandom, statusText:'Send code to email.'}) })
+                .catch( err => { return response.status( 400 ).json( {err, statusText:'Email could not be sent.'}) });
             }
             else{
                 return response.status( 200 ).json( {statusText:'Email is already registered.'} )
             }
         })
-        .catch( err => {
-            return response.status( 400 ).json( {err, statusText:'There was an error executing the findOne.'} )
-        });
+        .catch( err => { return response.status( 400 ).json({err, statusText:'There was an error executing the findOne.'}) });
 };
 
 const registerUserName = ( request, response ) => {
@@ -72,10 +60,7 @@ const registerUserName = ( request, response ) => {
 
     User.findOne( {userName} )
         .then( user => response.status( 200 ).json( user ) )
-        .catch( err => {
-            response.statusMessage = 'There was an error executing the findOne.';
-            return response.status( 400 ).json( err ) 
-        });
+        .catch( err => { return response.status( 400 ).json({err, statusText:'There was an error executing the findOne.'}) });
 };
 
 const registerUser = ( request, response ) => {
@@ -108,15 +93,11 @@ const registerUser = ( request, response ) => {
                             return response.status( 201 ).json( {token, userCreated} );
                         });
                     })
-                    .catch( err => {
-                        response.statusMessage = 'There was an error executing the create.';
-                        return response.status( 400 ).json( err ) 
-                    });
+                    .catch( err => { return response.status( 400 ).json({err, statusText:'There was an error executing the create.'}) });
             })
     }
     else{
-        response.statusMessage = "Complete data is required."
-        return response.status( 400 ).end();
+        return response.status( 400 ).json({statusText:'Complete data is required.'})
     }
 };
 
@@ -126,15 +107,13 @@ const loginUser = ( request, response ) => {
     User.findOne( {userName} )
         .then( userFound => {
             if( userFound === null ){
-                response.statusMessage = 'User not found.';
-                return response.status( 201 ).end();
+                return response.status( 201 ).json({statusText:'User not found.'})
             }
             else{
                 bcrypt.compare( password, userFound.password )
                     .then( result => {
                         if( !result ){
-                            response.statusMessage = 'Invalid credentials.';
-                            return response.status( 201 ).end();
+                            return response.status( 201 ).json({statusText:'Invalid credentials.'})
                         }
                         else{
                             const payload = {
@@ -146,17 +125,13 @@ const loginUser = ( request, response ) => {
                             };
 
                             jwt.sign( payload, secret, expiration, ( err, token ) => {
-                                response.statusMessage = 'Valid credentials.';
-                                return response.status( 201 ).json( {token, userFound} );
+                                return response.status( 201 ).json( {statusText:'Valid credentials.', token, userFound} );
                             });
                         }
                     });
             }
         })
-        .catch( err => {
-            response.statusMessage = 'There was an error executing the findOne.';
-            return response.status( 400 ).json( err ) 
-        });
+        .catch( err => { return response.status( 400 ).json({err, statusText:'There was an error executing the findOne.'}) });
 };
 
 const updateUser = ( request, response ) => {
@@ -183,10 +158,7 @@ const updateUser = ( request, response ) => {
     }*/
     User.findOneAndUpdate( {userName}, request.body, { runValidators: true, new: true } )
         .then( userUpdate => response.status( 202 ).json( userUpdate ) )
-        .catch( err => {
-            response.statusMessage = 'There was an error executing the update.';
-            return response.status( 400 ).json( err ) 
-        });
+        .catch( err => { return response.status( 400 ).json({err, statusText:'There was an error executing the update.'}) });
 };
 
 const deleteUser = ( request, response ) => {
@@ -194,10 +166,7 @@ const deleteUser = ( request, response ) => {
 
     User.deleteOne( {userName} )
         .then( () => response.status( 204 ).end() )
-        .catch( err => {
-            response.statusMessage = "There was an error executing the delete. ";
-            return response.status( 400 ).json( err )
-        });
+        .catch( err => { return response.status( 400 ).json({err, statusText:'There was an error executing the delete.'}) });
 };
 
 const UserController = {

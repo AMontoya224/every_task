@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 import './Register.css';
-import Form_0 from '../../components/Form_0/Form_0';
-import Form_1 from '../../components/Form_1/Form_1';
-import Form_2 from '../../components/Form_2/Form_2';
+import Form0 from '../../components/Form0/Form0';
+import Form1 from '../../components/Form1/Form1';
+import Form2 from '../../components/Form2/Form2';
 
 
 function Register( props ){
@@ -20,17 +20,17 @@ function Register( props ){
         axios.get( `${url}/api/users/register/email/${email}` )
             .then( res => {
                 console.log(res)
-                if( res.request.statusText === 'Send code to email.' ){
+                if( res.data.statusText === 'Send code to email.' ){
                     setUser( {email, country} );
                     setCode( res.data.codeRandom );
-                    setServerEmail( res.request.statusText );
+                    setServerEmail( res.data.statusText );
                 }
                 else{
-                    setServerEmail( res.request.statusText )
+                    setServerEmail( res.data.statusText )
                 }
             })
             .catch( err => {
-                try{ setServerEmail( err.response.statusText ) }
+                try{ setServerEmail( err.data.statusText ) }
                 catch( err ) { setServerEmail( ' ' ); };
             });
     };
@@ -78,7 +78,7 @@ function Register( props ){
                 props.history.push( '/home' );
             })
             .catch( err => {
-                try{ setServerCreateError( err.response.statusText ) }
+                try{ setServerCreateError( err.data.statusText ) }
                 catch( err ) { setServerCreateError( ' ' ); };
             })
     };
@@ -90,11 +90,11 @@ function Register( props ){
                 Create your account
             </h1>
             {
-                ( bar === 0 ) ? <Form_0 onSubmitProp={onSubmitEmail} serverValidation={serverEmail} onSubmitCode={onSubmitCodeForm} 
+                ( bar === 0 ) ? <Form0 onSubmitProp={onSubmitEmail} serverValidation={serverEmail} onSubmitCode={onSubmitCodeForm} 
                                         onClose={onSubmitClose} initialEmail={''} initialCountry={''}/> : 
-                ( bar === 1 ) ? <Form_1 onSubmitProp={onSubmitUser} initialFirstName={''} initialLastName={''} 
+                ( bar === 1 ) ? <Form1 onSubmitProp={onSubmitUser} initialFirstName={''} initialLastName={''} 
                                         initialUsertName={''} initialPhone={''} url={url}/> :
-                                <Form_2 onSubmitProp={onSubmitCreate} serverValidation={serverCreateError} initialPicture={''}/>
+                                <Form2 onSubmitProp={onSubmitCreate} serverValidation={serverCreateError} initialPicture={''}/>
             }
             <p>
                 Are you already registered? Enter your <Link to='/login' className='link'>login</Link>

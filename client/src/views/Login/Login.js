@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 import './Login.css';
-import Form_3 from '../../components/Form_3/Form_3';
+import Form3 from '../../components/Form3/Form3';
 
 
 function Login( props ){
@@ -12,7 +12,8 @@ function Login( props ){
     const onSubmitLogin = userNew => {
         axios.post( `${url}/api/users/login`, userNew )
             .then( res => {
-                if( res.request.statusText === 'Valid credentials.' ){
+                console.log(res)
+                if( res.data.statusText === 'Valid credentials.' ){
                     localStorage.setItem( 'token', res.data.token );
                     localStorage.setItem( 'user', JSON.stringify( res.data.userFound ) );
                     onToken( res.data.token );
@@ -20,11 +21,11 @@ function Login( props ){
                     props.history.push( '/home' );
                 }
                 else{
-                    setServerLogin( res.request.statusText );
+                    setServerLogin( res.data.statusText );
                 }
             })
             .catch( err => {
-                setServerLogin( err );
+                setServerLogin( err.data.statusText );
             })
     };
 
@@ -40,7 +41,7 @@ function Login( props ){
             <p>
                 Are you new to this site? <Link to='/register' className='link'>Register</Link>
             </p>
-            <Form_3 onSubmitProp={onSubmitLogin} serverValidation={serverLogin} onClose={onSubmitClose}/>
+            <Form3 onSubmitProp={onSubmitLogin} serverValidation={serverLogin} onClose={onSubmitClose}/>
         </div>
     );
 };

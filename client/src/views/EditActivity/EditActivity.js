@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './EditActivity.css';
-import Form_5 from '../../components/Form_5/Form_5';
+import Form_5 from '../../components/Form5/Form5';
 
 
 function EditActivity( props ){
@@ -34,10 +34,10 @@ function EditActivity( props ){
                 props.history.push( '/home' );
             })
             .catch( err => {
-                if( err.response.statusText === 'Not authorized' ){
+                if( err.data.statusText === 'Not authorized' ){
                     props.history.push( '/login' );
                 };
-                setServerActivity( err.response.statusText );
+                setServerActivity( err.data.statusText );
             })
     };
 

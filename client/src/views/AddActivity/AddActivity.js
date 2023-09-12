@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './AddActivity.css';
-import Form_5 from '../../components/Form_5/Form_5';
+import Form5 from '../../components/Form5/Form5';
 
 
 function AddActivity( props ){
@@ -26,10 +26,10 @@ function AddActivity( props ){
                 props.history.push( '/home' );
             })
             .catch( err => {
-                if( err.response.statusText === 'Not authorized' ){
+                if( err.data.statusText === 'Not authorized' ){
                     props.history.push( '/login' );
                 };
-                setServerActivity( err.response.statusText );
+                setServerActivity( err.data.statusText );
             })
     };
 
@@ -38,7 +38,7 @@ function AddActivity( props ){
             <h1>
                 Add to new Activity
             </h1>
-            <Form_5 onSubmitProp={onSubmitActivity} serverValidation={serverActivity} initialTitle={''} initialDate={''} initialContents={''}/>
+            <Form5 onSubmitProp={onSubmitActivity} serverValidation={serverActivity} initialTitle={''} initialDate={''} initialContents={''}/>
         </div>
     );
 };

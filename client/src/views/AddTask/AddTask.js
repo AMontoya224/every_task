@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './AddTask.css';
-import Form_4 from '../../components/Form_4/Form_4';
+import Form4 from '../../components/Form4/Form4';
 
 
 function AddTask( props ){
@@ -25,10 +25,10 @@ function AddTask( props ){
                 props.history.push( '/home' );
             })
             .catch( err => {
-                if( err.response.statusText === 'Not authorized' ){
+                if( err.data.statusText === 'Not authorized' ){
                     props.history.push( '/login' );
                 };
-                setServerTask( err.response.statusText );
+                setServerTask( err.data.statusText );
             })
     };
 
@@ -37,7 +37,7 @@ function AddTask( props ){
             <h1>
                 Add to new task
             </h1>
-            <Form_4 onSubmitProp={onSubmitTask} serverValidation={serverTask} initialTitle={''} initialContents={''}/>
+            <Form4 onSubmitProp={onSubmitTask} serverValidation={serverTask} initialTitle={''} initialContents={''}/>
         </div>
     );
 };

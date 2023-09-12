@@ -1,9 +1,9 @@
 import React, { useState, useMemo } from 'react';
 import countryList from 'react-select-country-list'
-import './Form_0.css';
+import './Form0.css';
 
 
-function Form_0( props ){
+function Form0( props ){
     const {onSubmitProp, serverValidation, onSubmitCode, onClose, initialEmail, initialCountry} = props;
     const options = useMemo(() => countryList().getData(), []);
 
@@ -172,4 +172,4 @@ function Form_0( props ){
     );
 };
 
-export default Form_0;
+export default Form0;

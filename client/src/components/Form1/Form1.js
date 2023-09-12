@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './Form_1.css';
+import './Form1.css';
 
 
-function Form_1( props ){
+function Form1( props ){
     const {onSubmitProp, initialFirstName, initialLastName, initialUsertName, initialPhone, url } = props;
     const [firstName, setFirstName] = useState( initialFirstName );
     const [lastName, setLastName] = useState( initialLastName );
@@ -161,4 +161,4 @@ function Form_1( props ){
     );
 };
 
-export default Form_1;
+export default Form1;

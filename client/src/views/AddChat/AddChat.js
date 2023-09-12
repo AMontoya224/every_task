@@ -15,7 +15,7 @@ function AddChat( props ){
                 props.history.push( '/' );
             })
             .catch( err => {
-                setServerTask( err );
+                setServerTask( err.data.statusText );
             })
     };
     //falta editar

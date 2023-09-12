@@ -5,10 +5,7 @@ const {Task} = require( './../models/task.model' );
 const getAllTasks = ( request, response ) => {
     Task.find()
         .then( tasks => response.status( 200 ).json( tasks ) )
-        .catch( err => {
-            response.statusMessage = 'There was an error executing the find.';
-            return response.status( 400 ).json( err ) 
-        });
+        .catch( err => { return response.status( 400 ).json({err, statusText:'There was an error executing the find.'}) });
 };
 
 const getTask = ( request, response ) => {
@@ -16,10 +13,7 @@ const getTask = ( request, response ) => {
 
     Task.findOne( {_id} )
     .then( task => response.status( 200 ).json( task ) )
-    .catch( err => {
-        response.statusMessage = 'There was an error executing the findOne.';
-        return response.status( 400 ).json( err ) 
-    });
+    .catch( err => { return response.status( 400 ).json({err, statusText:'There was an error executing the findOne.'}) });
 };
 
 const createTask = ( request, response ) => {
@@ -29,8 +23,7 @@ const createTask = ( request, response ) => {
     User.find( {userName} )
         .then( userFound => {
             if( userFound === null ){
-                response.statusMessage = 'User not found.';
-                return response.status( 201 ).end();
+                return response.status( 201 ).json({statusText:'User not found.'})
             }
             else{
                 const taskNew = {
@@ -47,16 +40,10 @@ const createTask = ( request, response ) => {
                                 return response.status( 201 ).json( taskCreated );
                             });
                     })
-                    .catch( err => {
-                        response.statusMessage = 'There was an error executing the create.';
-                        return response.status( 400 ).json( err );
-                    });
+                    .catch( err => { return response.status( 400 ).json({err, statusText:'There was an error executing the create.'}) });
             }
         })
-        .catch( err => {
-            response.statusMessage = "Hubo un error al ejecutar el insert. " + err;
-            return response.status( 400 ).end();
-        });
+        .catch( err => { return response.status( 400 ).json({err, statusText:'Hubo un error al ejecutar el insert.'}) });
 };
 
 const updateTask = ( request, response ) => {
@@ -64,10 +51,7 @@ const updateTask = ( request, response ) => {
 
     Task.findOneAndUpdate( {_id}, request.body, { runValidators: true, new: true } )
         .then( taskUpdate => response.status( 202 ).json( taskUpdate ) )
-        .catch( err => {
-            response.statusMessage = 'There was an error executing the update.';
-            return response.status( 400 ).json( err ) 
-        });
+        .catch( err => { return response.status( 400 ).json({err, statusText:'There was an error executing the update.'}) });
     /* Pendiente por hacer: actualizar listado de Usuarios */
 };
 
@@ -76,10 +60,7 @@ const deleteTask = ( request, response ) => {
 
     Task.deleteOne( {_id} )
         .then( () => response.status( 204 ).end() )
-        .catch( err => {
-            response.statusMessage = "There was an error executing the delete. ";
-            return response.status( 400 ).json( err )
-        });
+        .catch( err => { return response.status( 400 ).json({err, statusText:'There was an error executing the delete.'}) });
 };
 
 const TaskController = {
