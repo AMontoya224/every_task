@@ -27,7 +27,7 @@ function App() {
   const [sideBar, setSideBar] = useState( false );
   const [tasks, setTasks] = useState( [] );
   const [activities, setActivities] = useState( [] );
-  const url = 'http://localhost:7800'; //http://localhost:7800
+  const url = 'https://every-task.onrender.com';
 
   const onToken = tokenNew => {
     setToken( tokenNew );
