@@ -3,7 +3,7 @@ const res = require( 'express/lib/response' );
 const { render } = require( 'express/lib/response' );
 const jwt = require( 'jsonwebtoken' );
 const secret = process.env.JWT_SECRET;
-const saltRound = process.env.JWT_SALT;
+const saltRound = 10;
 const User = require( './../models/user.model' );
 const nodemailer = require('nodemailer');
 
@@ -166,7 +166,6 @@ const loginUser = ( request, response ) => {
 const updateUser = ( request, response ) => {
     const {userName} = request.params;
     /*const {password} = request.body;
-    console.log('eoeo' + password )
     if( password !== null ){
         const {firstName, lastName, userName, phone} = request.body;
         bcrypt.hash( password, saltRound )

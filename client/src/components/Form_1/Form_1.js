@@ -44,7 +44,6 @@ function Form_1( props ){
         ( !( e.target.value.length === 0 || e.target.value.length >= 7 ) ) ? setUserNameError( 'The user name must be at least 7 characters long.' ) :
         axios.get( `${url}/api/users/register/userName/${e.target.value}` )
             .then( res =>{
-                console.log( res.data );
                 if( res.data === null ){
                     setUserNameError( 'Username available.' );
                 }
@@ -53,7 +52,7 @@ function Form_1( props ){
                 }
             })
             .catch( err => {
-                setUserNameError( err.response.statusText );
+                setUserNameError( 'Unexpected error.' );
             });
     };
 
