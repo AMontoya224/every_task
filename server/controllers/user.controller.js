@@ -52,22 +52,18 @@ const registerUserEmail = ( request, response ) => {
                     html: "<h3>Verification Code</h3>" + "<h1>"+codeRandom+"</h1>"
                 })
                 .then( () => {
-                    response.statusMessage = 'Send code to email.';
-                    return response.status( 200 ).json( {codeRandom} )
+                    return response.status( 200 ).send('Send code to email.').json( {codeRandom} )
                 })
                 .catch( err => {
-                    response.statusMessage = 'Email could not be sent.';
-                    return response.status( 400 ).json( err ) 
+                    return response.status( 400 ).send('Email could not be sent.').json( err )
                 });
             }
             else{
-                response.statusMessage = 'Email is already registered.';
-                return response.status( 200 ).end();
+                return response.status( 200 ).send('Email is already registered.').end()
             }
         })
         .catch( err => {
-            response.statusMessage = 'There was an error executing the findOne.';
-            return response.status( 400 ).json( err ) 
+            return response.status( 400 ).send('There was an error executing the findOne.').json( err ) 
         });
 };
 

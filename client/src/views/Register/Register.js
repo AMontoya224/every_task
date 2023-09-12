@@ -19,6 +19,7 @@ function Register( props ){
         const {email, country} = userNew;
         axios.get( `${url}/api/users/register/email/${email}` )
             .then( res => {
+                console.log(res)
                 if( res.request.statusText === 'Send code to email.' ){
                     setUser( {email, country} );
                     setCode( res.data.codeRandom );
