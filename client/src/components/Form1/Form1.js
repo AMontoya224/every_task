@@ -122,29 +122,29 @@ function Form1( props ){
                         <p className='inp-error'>{phoneError}</p>
                     </label>
                 </div>
-                <div className='inp-container'>
-                    <label htmlFor='password' className='inp'>
-                        <div className='row'>
+                <div>
+                    <div className='inp-container'>
+                        <label htmlFor='password' className='inp'>
                             <input type={passwordShown ? 'text' : 'password'} id='password' className='inp-input' 
-                                   placeholder=' ' value={password} onChange={handlePassword} />
-                            <span className='inp-label inp-label-P'>Password</span>
+                                placeholder=' ' value={password} onChange={handlePassword} />
+                            <span className='inp-label inp-label-p'>Password</span>
                             <span className='inp-focus'></span>
-                            <span className='material-icons-outlined inp-icons' onClick={togglePassword}>{passwordShown ? 'visibility' : 'visibility_off'}</span>
-                        </div>
-                        <p className='inp-error'>{passwordError}</p>
-                    </label> 
+                            <p className='inp-error'>{passwordError}</p>
+                        </label>
+                        <span className='material-icons-outlined inp-icons' onClick={togglePassword}>{passwordShown ? 'visibility' : 'visibility_off'}</span>
+                    </div>
                 </div>
-                <div className='inp-container'>
-                    <label htmlFor='confirm' className='inp'>
-                        <div className='row'>
+                <div>
+                    <div className='inp-container'>
+                        <label htmlFor='confirm' className='inp'>
                             <input type={confirmShown ? 'text' : 'password'} id='confirm' className='inp-input' 
-                                   placeholder=' ' value={confirm} onChange={handleConfirm} />
-                            <span className='inp-label inp-label-P'>Confirm Password</span>
+                                placeholder=' ' value={confirm} onChange={handleConfirm} />
+                            <span className='inp-label inp-label-p'>Confirm Password</span>
                             <span className='inp-focus'></span>
-                            <span className='material-icons-outlined inp-icons' onClick={toggleConfirm}>{confirmShown ? 'visibility' : 'visibility_off'}</span>
-                        </div>
-                        <p className='inp-error'>{confirmError}</p>
-                    </label> 
+                            <p className='inp-error'>{confirmError}</p>
+                        </label> 
+                        <span className='material-icons-outlined inp-icons' onClick={toggleConfirm}>{confirmShown ? 'visibility' : 'visibility_off'}</span>
+                    </div>
                 </div>
                 <button type={( firstName.length < 1 || lastName.length < 1 || userName.length < 1 || 
                                 phone.length < 1 || password.length < 1 || confirm.length < 1 || 

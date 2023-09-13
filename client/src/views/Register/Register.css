@@ -1,10 +1,21 @@
 .register{
-    width: 1200px;
-    margin: 10px auto;
+    width: 50%;
+    padding-top: 12rem;
+    margin: 0 auto;
+}
+
+.register > progress{
+    height: .5rem;
+    width: 100%;
+}
+
+.register > h1{
+    font-size: 4rem;
+    margin: 1rem 0;
 }
 
 .register > p{
-    margin-top: 1.5rem;
+    margin: 3rem 0 ;
 }
 
 .row{

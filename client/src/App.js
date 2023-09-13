@@ -20,21 +20,17 @@ import EditTask from './views/EditTask/EditTask';
 import EditActivity from './views/EditActivity/EditActivity';
 import TasksAll from './components/TasksAll/TasksAll';
 import ActivitiesAll from './components/ActivitiesAll/ActivitiesAll';
+import AboutUs from './views/AboutUs/AboutUs';
 
 
 function App() {
   const [token, setToken] = useState( localStorage.getItem( 'token' ) );
-  const [sideBar, setSideBar] = useState( false );
   const [tasks, setTasks] = useState( [] );
   const [activities, setActivities] = useState( [] );
   const url = 'https://every-task.onrender.com';
 
   const onToken = tokenNew => {
     setToken( tokenNew );
-  };
-
-  const onSideBar = () => {
-    setSideBar( !sideBar );
   };
 
   const onTasks = tasksNew => {
@@ -87,8 +83,8 @@ function App() {
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"></link>
       
       <BrowserRouter>
-        <Header onSideBar={onSideBar} tasksLenght={token === null ? '' : tasks.length} activitiesLenght={token === null ? '' : activities.length}/>
-        {token === null ? <></> : <Left onToken={onToken} sideBar={sideBar}/>}
+        <Header token={token} tasks={tasks} activities={activities}/>
+        {token === null ? <></> : <Left onToken={onToken}/>}
         {token === null ? <></> : <Right/>}
         <Switch>
           <Route exact path="/" render={ routeProps => <Information {...routeProps} />}/>
@@ -106,6 +102,7 @@ function App() {
           <Route exact path="/addChat" render={ routeProps => <AddChat url={url} {...routeProps} />}/>
           <Route exact path="/tasks" render={ routeProps => <><h1>Tasks All</h1><TasksAll onTasks={onTasks} url={url} {...routeProps} /></>}/>
           <Route exact path="/activities" render={ routeProps => <><h1>Activities All</h1><ActivitiesAll onActivities={onActivities} url={url} {...routeProps} /></>}/>
+          <Route exact path="/about-us" render={ routeProps => <AboutUs {...routeProps} />}/>
         </Switch>
         <Footer/>
       </BrowserRouter>

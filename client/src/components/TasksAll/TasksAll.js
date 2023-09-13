@@ -67,18 +67,16 @@ function TasksAll( props ){
             : 
                 <div>
                     {tasks.map( ( task, idx ) => 
-                        <div key={idx} className={( idx % 2 === 0 ) ? 'task task-green' : ( idx % 3 === 0 ) ? 'task task-blue' : 'task task-yellow'}>
-                                <div className={task.status ? "checked-item" : "not-checked-item"}>
-                                    <div className='title-server'>
-                                        <Link to={`/editTask/${task._id}`} className='task-link'>
+                        <div key={idx} className={task.status ? "task checked" : "task not-checked"}>
+                                <div>
+                                    <div className='title'>
+                                        <Link to={`/editTask/${task._id}`}>
                                             <h3>{task.title}</h3>
                                         </Link>
                                         <button className='delete-task' type='button' onClick={()=>{deleteTask( task._id, task.title )}}><span className="material-icons-round">remove_circle</span></button>
                                     </div>
                                     <div className='row'>
-                                        <Link to={`/editTask/${task._id}`} className='task-link'>
-                                            <p>{task.contents}</p>
-                                        </Link>
+                                        <p>{task.contents}</p>
                                         <input className='input-checkbox' value={task.status} type="checkbox" checked={task.status} onChange={()=>{handleCheck( task._id, task.status)}} />
                                     </div>
                                 </div>

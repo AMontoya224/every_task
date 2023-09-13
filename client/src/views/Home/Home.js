@@ -10,11 +10,11 @@ function Home( props ){
     return (
         <div className='home'>
             <div className='tasks'>
-                <h1>Tasks to do today!!</h1>
+                <h4>Tasks to do today!!</h4>
                 <TasksAll onTasks={onTasks} url={url}/>
             </div>
             <div className='activities'>
-                <h1>Future activities, but don't forget to do them</h1>
+                <h4>Future activities, but don't forget to do them</h4>
                 <ActivitiesAll onActivities={onActivities} url={url}/>
             </div>
         </div>

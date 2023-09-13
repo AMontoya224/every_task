@@ -66,19 +66,17 @@ function ActivitiesAll( props ){
             : 
                 <div>
                     {activities.map( ( activity, idx ) => 
-                        <div key={idx} className={( idx % 2 === 0 ) ? 'activity activity-green' : ( idx % 3 === 0 ) ? 'activity activity-blue' : 'activity activity-yellow'}>
-                            <div className={activity.status ? "checked-item" : "not-checked-item"}>
-                                <div className='title-server'>
-                                    <Link to={`/editActivity/${activity._id}`} className='task-link'>
+                        <div key={idx} className={activity.status ? "activity checked" : "activity not-checked"}>
+                            <div>
+                                <div className='title'>
+                                    <Link to={`/editActivity/${activity._id}`}>
                                         <h3>{activity.title}</h3>
                                     </Link>
                                     <button className='delete-task' type='button' onClick={()=>{deleteActivity( activity._id, activity.title )}}><span className="material-icons-round">remove_circle</span></button>
                                 </div>
-                                <b>{activity.date}</b>
+                                <i>{activity.date.slice(0, 10)} | {activity.date.slice(11, 16)}</i>
                                 <div className='row'>
-                                    <Link to={`/editActivity/${activity._id}`} className='task-link'>
-                                        <p>{activity.contents}</p>
-                                    </Link>
+                                    <p>{activity.contents}</p>
                                     <input className='input-checkbox' value={activity.status} type="checkbox" checked={activity.status} onChange={()=>{handleCheck( activity._id, activity.status)}} />
                                 </div>
                             </div>

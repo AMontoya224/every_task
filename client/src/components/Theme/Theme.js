@@ -21,9 +21,11 @@ function Theme(){
     };
 
     return (
-        <span className='material-icons theme-toggler' onClick={changeTheme}>
-            {iconTheme ? "light_mode" : "dark_mode"}
-        </span>
+        <div  className='theme'>
+            <span className='material-icons-round' onClick={changeTheme}>
+                {iconTheme ? "light_mode" : "dark_mode"}
+            </span>
+        </div>
     )
 };
 

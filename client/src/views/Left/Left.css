@@ -1,18 +1,22 @@
 .left{
     background: var(--color-background);
     box-shadow: 0.2rem 0.2rem 0.5rem 0.1rem var(--color-table);
-    width: 80px;
+    width: 6.5rem;
     height: 95%;
-    margin-top: 40px;
-    padding: 0 0.2rem;
+    margin-top: 6rem;
     position: fixed;
     top: 0;
     left: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    overflow: hidden;
+    transition: all 350ms ease;
+    z-index: 2;
 }
-
+.left:hover{
+    width: 15rem;
+}
 
 /* ------------- SIDEBAR ------------- */
 aside{
@@ -20,75 +24,64 @@ aside{
     display: block;
 }
 
-aside .sidebar{
+aside > .sidebar{
     background: var(--color-background);
     display: flex;
     flex-direction: column;
     height: 86vh;
     position: relative;
     top: 3rem;
+    gap: 2.5rem;
 }
 
-aside h3{
-    font-weight: 500;
-    /*display: block;*/
-}
-
-.sidebar-h3{
-    display: block;
-}
-
-.sidebar-h3-none{
-    display: none;
-}
-
-aside .sidebar a{
+aside > .sidebar > a{
     display: flex;
     color: var(--color-info-dark);
-    margin-left: 1.2rem;
+    margin-left: 2rem;
     gap: 1rem;
     align-items: center;
     position: relative;
     height: 3.7rem;
-    transition: all 500ms ease;
+    transition: all 350ms ease;
 }
 
-aside .sidebar a span{
-    font-size: 1.6rem;
-    transition: all 500ms ease;
+aside > .sidebar a > span{
+    font-size: 2.5rem;
+    transition: all 350ms ease;
 }
 
-aside .sidebar a:last-child{
+aside > .sidebar > a:last-child{
     position: absolute;
     bottom: 2rem;
     width: 100%;
 }
 
-aside .sidebar .active{
+aside > .sidebar > .active{
     background: var(--color-light);
     color: var(--color-primary);
     margin-left: 0;
 }
 
-aside .sidebar .active:before{
+aside > .sidebar > .active:before{
     content: '';
     width: 6px;
     height: 100%;
     background: var(--color-primary);
 }
 
-aside .sidebar .active span{
-    color: var(--color-primary);
-    margin-left: calc(1rem - 6px);
+aside > .sidebar > a > h3{
+    width: 10rem;
+    font-weight: 500;
+    font-size: 1.2rem;
 }
 
-aside .sidebar a:hover{
-    color: var(--color-primary);
-}
-
-aside .sidebar a:hover span{
+aside > .sidebar > .active > span, aside > .sidebar > a:hover > span{
     margin-left: calc(1rem -  6px);
-    transition: all 500ms ease;
+    color: var(--color-primary);
+    transition: all 350ms ease;
+}
+aside > .sidebar > .active > h3, aside > .sidebar > a:hover > h3{
+    color: var(--color-primary);
 }
 
 

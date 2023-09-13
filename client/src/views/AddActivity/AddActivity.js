@@ -26,10 +26,10 @@ function AddActivity( props ){
                 props.history.push( '/home' );
             })
             .catch( err => {
-                if( err.data.statusText === 'Not authorized' ){
+                if( err.message === 'Not authorized' ){
                     props.history.push( '/login' );
                 };
-                setServerActivity( err.data.statusText );
+                setServerActivity( err.message );
             })
     };
 

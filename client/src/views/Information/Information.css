@@ -1,7 +1,61 @@
-.information{
-    margin: 0 200px;
+.information > section{
+    position: relative;
+    padding-top: 15rem;
+    height: 100vh;
 }
 
-.information > p{
-    margin: 20px 0;
+.information > section > div{
+    width: 40%;
+    height: 60%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.information > section > div > div{
+    background-color: var(--color-primary);
+    font-size: 1.2rem;
+    border-radius: 5rem;
+    border: none;
+    padding: 1rem 0;
+    margin: 0 auto;
+    width: 30%;
+    cursor: pointer;
+    transition: all 500ms ease;
+}
+.information > section > div > div:hover{
+    background-color: var(--color-primary-variant);
+}
+
+.information > section > div > div > .d > p{
+    color: white;
+}
+
+.information > section > svg{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    opacity: .9;
+    z-index: -1;
+}
+
+.information > .two > div{
+    width: 30%;
+    height: 50%;
+    text-align: left;
+    margin: 20rem 0 0 15rem;
+}
+
+.information > .two > svg{
+    top: 0;
+}
+
+.information > .two > div > b{
+    color: var(--color-primary);
+}
+
+.information > .two > div > p{
+    font-size: 1.8rem;
 }

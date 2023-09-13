@@ -49,17 +49,17 @@ function Form3( props ){
                             <p className='inp-error'>{userNameError}</p>
                         </label>
                     </div>
-                    <div className='inp-container'>
-                        <label htmlFor='password' className='inp'>
-                            <div className='row'>
+                    <div>
+                        <div className='inp-container'>
+                            <label htmlFor='password' className='inp'>
                                 <input type={passwordShown ? 'text' : 'password'} id='password' className='inp-input' 
                                     placeholder=' ' value={password} onChange={handlePassword} />
-                                <span className='inp-label inp-label-P'>Enter your password</span>
+                                <span className='inp-label inp-label-p'>Enter your password</span>
                                 <span className='inp-focus'></span>
-                                <span className='material-icons-outlined inp-icons' onClick={togglePassword}>{passwordShown ? 'visibility' : 'visibility_off'}</span>
-                            </div>
-                            <p className='inp-error'>{passwordError}</p>
-                        </label> 
+                                <p className='inp-error'>{passwordError}</p>
+                            </label>
+                            <span className='material-icons-outlined inp-icons' onClick={togglePassword}>{passwordShown ? 'visibility' : 'visibility_off'}</span>
+                        </div>
                     </div>
                     <button type={( userName.length < 1 || password.length < 1 || userNameError.length > 1 || 
                                     passwordError.length > 1 ) ? 'reset' : 'submit'}

@@ -1,30 +1,71 @@
+.tasksAll{
+    margin-top: 10rem;
+}
+
 .activity{
-    border: 1px solid var(--color-letter);
-    margin: 10px;
-    display: inline-block;
-    padding: 10px 60px;
-    max-width: 600px;
-    border-radius: 3%;
-    cursor: pointer;
-}
-
-.activity-green{
+    position: relative;
     background: rgb(76, 164, 175);
-}
-.activity-green:hover{
-    background: rgb(51, 114, 122);
+    padding: 3rem;
+    margin: 3rem;
+    max-width: 70rem;
+    max-height: 40rem;
+    box-shadow: .5rem .5rem .7rem rgba(33,33,33,.7);
+    display: inline-block;
+    transition: all 350ms ease;
 }
 
-.activity-blue{
+.activity:nth-child(even){
+    transform: rotate(4deg);
+    position: relative;
+    top: .5rem;
+}
+.activity:nth-child(2n){
+    transform: rotate(-3deg);
+    position: relative;
+    top: -.5rem;
     background: rgb(199, 41, 36);
 }
-.activity-blue:hover{
-    background: rgb(175, 28, 23);
-}
-
-.activity-yellow{
+.activity:nth-child(5n){
+    transform: rotate(5deg);
+    position: relative;
+    top: -1rem;
     background: var(--color-warning);
 }
-.activity-yellow:hover{
-    background: var(--color-warning-variant);
+.activity:nth-child(7n){
+    transform: rotate(-2deg);
+    position: relative;
+    top: -1rem;
+    background: rgb(19, 132, 49);
+}
+.activity:hover{
+    box-shadow: 1rem 1rem .7rem rgba(0,0,0,.7);
+    transform: scale(1.25);
+    position: relative;
+    z-index: 5;
+}
+
+.activity > div > div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.activity > div > div > a{
+    overflow: hidden;
+    color: var(--color-letter);
+    transition: all 350ms ease;
+}
+.activity > div > div > a:hover{
+    opacity: .7;
+}
+
+.activity > div > div > p{
+    text-align: center;
+    overflow: hidden;
+    width: 100%;
+}
+
+.activity > div > i{
+    opacity: .8;
+    font-size: 1.2rem;
 }

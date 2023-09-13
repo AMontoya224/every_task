@@ -51,7 +51,7 @@ function Form5( props ){
                 </div>
                 <div className='inp-container'>
                     <label htmlFor='date' className='inp'>
-                        <input type='date' id='date' className='inp-input' placeholder=' ' value={date} 
+                        <input type='datetime-local' id='date' className='inp-input' placeholder=' ' value={date} 
                             onChange={handleDate}/>
                         <span className='inp-label'>Activity date</span>
                         <span className='inp-focus'></span>

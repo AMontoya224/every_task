@@ -1,6 +1,12 @@
 .login{
-    width: 1200px;
-    margin: 10px auto;
+    width: 30%;
+    padding-top: 15rem;
+    margin: 0 auto;
+}
+
+.login > h1{
+    font-size: 4rem;
+    margin: 1rem 0;
 }
 
 .login > p{
