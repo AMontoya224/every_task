@@ -21,6 +21,8 @@ import EditActivity from './views/EditActivity/EditActivity';
 import TasksAll from './components/TasksAll/TasksAll';
 import ActivitiesAll from './components/ActivitiesAll/ActivitiesAll';
 import AboutUs from './views/AboutUs/AboutUs';
+import Statistics from './views/Statistics/Statistics';
+import Community from './views/Community/Community';
 
 
 function App() {
@@ -87,7 +89,7 @@ function App() {
         {token === null ? <></> : <Left onToken={onToken}/>}
         {token === null ? <></> : <Right/>}
         <Switch>
-          <Route exact path="/" render={ routeProps => <Information {...routeProps} />}/>
+          <Route exact path="/" render={ routeProps => <Information token={token} onToken={onToken} {...routeProps} />}/>
           <Route exact path="/home" render={ routeProps => <Home onTasks={onTasks} onActivities={onActivities} url={url} {...routeProps} />}/>
           <Route exact path="/editTask/:_id" render={ routeProps => <EditTask url={url} {...routeProps} />}/>
           <Route exact path="/editActivity/:_id" render={ routeProps => <EditActivity url={url} {...routeProps} />}/>
@@ -103,6 +105,8 @@ function App() {
           <Route exact path="/tasks" render={ routeProps => <><h1>Tasks All</h1><TasksAll onTasks={onTasks} url={url} {...routeProps} /></>}/>
           <Route exact path="/activities" render={ routeProps => <><h1>Activities All</h1><ActivitiesAll onActivities={onActivities} url={url} {...routeProps} /></>}/>
           <Route exact path="/about-us" render={ routeProps => <AboutUs {...routeProps} />}/>
+          <Route exact path="/community" render={ routeProps => <Community url={url} {...routeProps} />}/>
+          <Route exact path="/statistics" render={ routeProps => <Statistics {...routeProps} />}/>
         </Switch>
         <Footer/>
       </BrowserRouter>

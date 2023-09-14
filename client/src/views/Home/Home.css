@@ -1,5 +1,6 @@
 .home{
     margin: 15rem;
+    min-height: 64vh;
 }
 
 .home > .activities{

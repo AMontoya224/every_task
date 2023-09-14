@@ -1,5 +1,6 @@
 .user-profile{
     width: 85%;
+    min-height: 64vh;
     margin: auto;
 }
 

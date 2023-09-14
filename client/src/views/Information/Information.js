@@ -1,9 +1,20 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import React, { useEffect } from 'react';
+import {Link, withRouter} from 'react-router-dom';
 import './Information.css';
 
 
-function Information( ){
+function Information( props ){
+    const { token, onToken } = props;
+
+    useEffect( () => {
+        if( token === null ){
+            localStorage.removeItem( 'token' );
+            localStorage.removeItem( 'user' );
+            onToken( null );
+            props.history.push( '/' )
+        }
+    }, []);
+
     return (
         <div className='information'>
             <section className='one'>
@@ -42,4 +53,4 @@ function Information( ){
     );
 };
 
-export default Information;
+export default withRouter(Information);

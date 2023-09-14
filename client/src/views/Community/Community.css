@@ -1,0 +1,26 @@
+.community{
+    margin: 15rem;
+    min-height: 64vh;
+}
+
+.community > table{
+    width: 75%;
+    margin: 2rem auto;
+}
+
+.community > table > tr > td{
+    width: 40%;
+}
+.community > table > tr > td:first-child{
+    width: 20%;
+}
+
+.community > table > tr > th{
+    background: var(--color-table-variant);
+}
+
+.community > table > tr > td > img{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+}

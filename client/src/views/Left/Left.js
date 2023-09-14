@@ -34,7 +34,7 @@ function Left( props ){
                         <span className="material-icons-round">storage</span>
                         <h3>Activities</h3>
                     </Link>
-                    <Link to='/analysis' onClick={() => handleBoxToggle( 3 )} className={( activeLeft === 3 ) ? 'active' : 'deactivated'}>
+                    <Link to='/statistics' onClick={() => handleBoxToggle( 3 )} className={( activeLeft === 3 ) ? 'active' : 'deactivated'}>
                         <span className="material-icons-round">query_stats</span>
                         <h3>Statistics</h3>
                     </Link>

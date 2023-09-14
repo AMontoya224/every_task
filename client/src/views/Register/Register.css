@@ -1,5 +1,6 @@
 .register{
     width: 50%;
+    min-height: 64vh;
     padding-top: 12rem;
     margin: 0 auto;
 }
