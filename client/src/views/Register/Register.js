@@ -87,7 +87,7 @@ function Register( props ){
         <div className='register'>
             <progress value={bar} max='3'>{bar} %</progress>
             <h1>
-                Create your account
+                Crea tu cuenta
             </h1>
             {
                 ( bar === 0 ) ? <Form0 onSubmitProp={onSubmitEmail} serverValidation={serverEmail} onSubmitCode={onSubmitCodeForm} 
@@ -97,7 +97,7 @@ function Register( props ){
                                 <Form2 onSubmitProp={onSubmitCreate} serverValidation={serverCreateError} initialPicture={''}/>
             }
             <p>
-                Are you already registered? Enter your <Link to='/login' className='link'>login</Link>
+                ¿Ya estás registrado? Click aqui <Link to='/login' className='link'>Ingresar</Link>
             </p>
         </div>
     );

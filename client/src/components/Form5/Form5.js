@@ -15,7 +15,7 @@ function Form5( props ){
     const handleTitle = e => {
         setTitle( e.target.value );
         ( e.target.value.length === 0 || e.target.value.length >= 3 ) ? setTitleError( ' ' ) :
-                             setTitleError( 'Title must be at least 3 characters long.' );
+                             setTitleError( 'El título debe tener al menos 3 caracteres.' );
     };
 
     const handleDate = e => {
@@ -23,13 +23,13 @@ function Form5( props ){
         const newDate = new Date( (e.target.value).substr(0, 4) + '-' + (e.target.value).substr(5, 2) + '-' + (e.target.value).substr(8, 2) );
         setDate( e.target.value );
         ( currentDate.getTime() <= newDate.getTime() ) ? setDateError( ' ' ) : 
-                                setDateError( 'Date cannot be in the past.' );
+                                setDateError( 'La fecha no puede estar en el pasado.' );
     };
 
     const handleContents = e => {
         setContents( e.target.value );
         ( e.target.value.length === 0 || e.target.value.length >= 5 ) ? setContentsError( ' ' ) :
-                          setContentsError( 'Task content must be at least 3 characters long.' );
+                          setContentsError( 'El contenido de la tarea debe tener al menos 3 caracteres.' );
     };
 
     const onSubmitHandler = e => {
@@ -44,7 +44,7 @@ function Form5( props ){
                     <label htmlFor='title' className='inp'>
                         <input type='text' id='title' className='inp-input' placeholder=' ' value={title} 
                             onChange={handleTitle}/>
-                        <span className='inp-label'>Activity title</span>
+                        <span className='inp-label'>Título de la actividad</span>
                         <span className='inp-focus'></span>
                         <p className='inp-error'>{titleError}</p>
                     </label>
@@ -53,7 +53,7 @@ function Form5( props ){
                     <label htmlFor='date' className='inp'>
                         <input type='datetime-local' id='date' className='inp-input' placeholder=' ' value={date} 
                             onChange={handleDate}/>
-                        <span className='inp-label'>Activity date</span>
+                        <span className='inp-label'>Fecha</span>
                         <span className='inp-focus'></span>
                         <p className='inp-error'>{dateError}</p>
                     </label>
@@ -62,7 +62,7 @@ function Form5( props ){
                     <label htmlFor='contents' className='inp'>
                         <input type='text' id='contents' className='inp-input' placeholder=' ' value={contents} 
                             onChange={handleContents}/>
-                        <span className='inp-label'>Activity content</span>
+                        <span className='inp-label'>Contenido</span>
                         <span className='inp-focus'></span>
                         <p className='inp-error'>{contentsError}</p>
                     </label>
@@ -74,7 +74,7 @@ function Form5( props ){
                                 dateError.length > 1 || contentsError.length > 1 ) ? 'reset' : 'submit'}
                         className={( title.length < 1 || contents.length < 1 || date.length < 1 || titleError.length > 1 || 
                                      dateError.length > 1 || contentsError.length > 1 ) ? 'submit not-submit' : 'submit'}>
-                        Add
+                        Añadir
                 </button>
             </div>
         </form>

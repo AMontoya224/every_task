@@ -40,7 +40,7 @@ function EditUser( props ){
     return (
         <div className='editTask'>
             <h1>
-                Edit Account
+                Editar cuenta
             </h1>
             {( JSON.parse( localStorage.getItem( 'user' ) ).email ) && <Form1 url={url} onSubmitProp={onUpdateUser} initialFirstName={JSON.parse( localStorage.getItem( 'user' ) ).firstName} initialLastName={JSON.parse( localStorage.getItem( 'user' ) ).lastName} 
                                         initialUsertName={JSON.parse( localStorage.getItem( 'user' ) ).userName} initialPhone={JSON.parse( localStorage.getItem( 'user' ) ).phone}/>}

@@ -60,7 +60,7 @@ function ActivitiesAll( props ){
         <div className='tasksAll'>
             {activities.length === 0 ? 
                 <div>
-                    <p className='message-buttom'>Don't forget to write down your pending activities</p>
+                    <p className='message-buttom'>No olvides anotar tus actividades pendientes</p>
                     <Link to='/addActivity' className='tasksAll-buttom'><span className="material-icons-round">add</span></Link>
                 </div> 
             : 

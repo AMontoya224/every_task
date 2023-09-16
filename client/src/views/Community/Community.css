@@ -24,3 +24,27 @@
     height: 10rem;
     border-radius: 50%;
 }
+
+
+@media only screen and (max-width: 960px){
+    .community{
+        margin: 15rem 5rem;
+    }
+
+    .community > table > tr > td{
+        width: 40%;
+    }
+    .community > table > tr > td:first-child{
+        width: 20%;
+    }
+    
+    .community > table > tr > th, .community > table > tr > td{
+        font-size: .8rem;
+    }
+    
+    .community > table > tr > td > img{
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%;
+    }
+}

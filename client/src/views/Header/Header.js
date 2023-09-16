@@ -20,10 +20,10 @@ function Header( props ){
                 {(JSON.parse( localStorage.getItem( 'user' ) ) === '' || JSON.parse( localStorage.getItem( 'user' ) ) === null ) ? 
                     <div className='bh'>
                         <div>
-                            <Link to='/login' className='d'><p>Login</p></Link>
+                            <Link to='/login'><p>Ingresar</p></Link>
                         </div>
-                        <div>
-                            <Link to='/register' className='d'><p>Register</p></Link>
+                        <div className='d'>
+                            <Link to='/register'><p>Registrarse</p></Link>
                         </div>
                     </div> : 
                     <div className='profile row' onClick={handleDetails}>

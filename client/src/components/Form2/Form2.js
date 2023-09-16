@@ -81,7 +81,7 @@ function Form2( props ){
                 </p>
                 <button type={( picture.length < 1 ) ? 'reset' : 'submit'}
                    className={( picture.length < 1 ) ? 'submit not-submit' : 'submit'}>
-                       Register
+                       Registrar
                 </button>
             </div>
         </form>

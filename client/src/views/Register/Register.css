@@ -25,3 +25,14 @@
     justify-content: center;
     align-items: center;
 }
+
+
+@media only screen and (max-width: 960px){
+    .register{
+        width: 90%;
+    }
+    
+    .register > h1{
+        font-size: 3rem;
+    }
+}

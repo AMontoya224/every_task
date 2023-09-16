@@ -242,6 +242,8 @@
 }
 
 /* ------------- MEDIA QUERIES ------------- */
-@media screen and (max-width: 500px) {
-
+@media only screen and (max-width: 960px){
+    .picture-profile{
+        width: 70px;
+    }
 }

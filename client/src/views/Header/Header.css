@@ -16,10 +16,6 @@
 .header > .row > .bh{
     display: flex;
     flex: 2;
-    gap: 2rem;
-}
-
-.header > .row > .bh{
     gap: 10rem;
 }
 
@@ -36,7 +32,7 @@
 .header > .row > .bh > div:hover{
     background-color: var(--color-primary-variant);
 }
-.header > .row > .bh > div > .d > p{
+.header > .row > .bh > div > a > p{
     color: white;
 }
 
@@ -118,4 +114,38 @@
     background: transparent;
     border-top-left-radius: 50px;
     box-shadow: 0 -10px 0 0 var(--color-letter);
+}
+
+@media only screen and (max-width: 960px){
+    .header > .row > .space{
+        display: none;
+    }
+
+    .header > .row > .tittle{
+        flex: 2.5;
+    }
+    .header > .row > .tittle > h2{
+        font-size: 3rem;
+    }
+
+    .header > .row > .bh{
+        flex: 1;
+        gap: 0;
+    }
+
+    .header > .row > .bh > .d{
+        display: none;
+    }
+
+    .header > .row > .bh > div{
+        font-size: 1rem;
+    }
+
+    .profile{
+        flex: 1;
+    }
+    
+    .profile > .col{
+        display: none;
+    }
 }

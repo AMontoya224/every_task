@@ -35,3 +35,23 @@
         padding-right: 20px;
     }
 }
+
+
+@media only screen and (max-width: 960px){ 
+    .right-buttom{
+        width: 4rem;
+        height: 4rem;
+    }
+    
+    .right-buttom > span{
+        font-size: 2.5rem;
+    }
+
+    @keyframes rightButtom {
+        to {
+            width: 50px;
+            background: var(--color-sucess);
+            padding-right: 20px;
+        }
+    }
+}

@@ -51,7 +51,7 @@ function EditAccount( props ){
     return (
         <div className='editTask'>
             <h1>
-                Edit Account
+                Editar cuenta
             </h1>
             {( JSON.parse( localStorage.getItem( 'user' ) ).email ) && <Form0 onSubmitProp={onUpdateEmail} serverValidation={serverUpdateError} onSubmitCode={onSubmitCodeForm} 
             onClose={onSubmitClose} initialEmail={JSON.parse( localStorage.getItem( 'user' ) ).email} initialCountry={JSON.parse( localStorage.getItem( 'user' ) ).country}/>}

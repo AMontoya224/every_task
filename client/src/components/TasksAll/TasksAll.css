@@ -111,3 +111,31 @@
     text-decoration: none;
     opacity: 1;
 }
+
+
+@media only screen and (max-width: 960px){
+    .message-buttom{
+        font-size: 1rem;
+    }
+    
+    .tasksAll-buttom > span{
+        font-size: 10rem;
+    }
+    
+    .task{
+        padding: 2rem;
+        margin: 2rem;
+    }
+    
+    .task > div > div > a > h3{
+        font-size: 2rem;
+    }
+
+    .task > div > div > p{
+        font-size: 1.5rem;
+    }
+    
+    .delete-task > span{
+        font-size: 2rem;
+    }
+}

@@ -23,12 +23,12 @@ function Community( props ){
 
     return (
         <div className='community'>
-            <h3>Community</h3>
+            <h3>Comunidad</h3>
             <table>
                 <tr>
-                    <th>Picture</th>
-                    <th>Name</th>
-                    <th>Email</th>
+                    <th>Avatar</th>
+                    <th>Nombre completo</th>
+                    <th>Correo electrónico</th>
                 </tr>
                 {users.map( ( user, idx ) =>
                 <tr key={idx}>

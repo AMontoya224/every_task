@@ -21,14 +21,16 @@ import EditActivity from './views/EditActivity/EditActivity';
 import TasksAll from './components/TasksAll/TasksAll';
 import ActivitiesAll from './components/ActivitiesAll/ActivitiesAll';
 import AboutUs from './views/AboutUs/AboutUs';
-import Statistics from './views/Statistics/Statistics';
 import Community from './views/Community/Community';
+import Statistics from './views/Statistics/Statistics';
+import Settings from './views/Settings/Settings';
 
 
 function App() {
   const [token, setToken] = useState( localStorage.getItem( 'token' ) );
   const [tasks, setTasks] = useState( [] );
   const [activities, setActivities] = useState( [] );
+  const [selectLan, setSelectLan] = useState( false );
   const url = 'https://every-task.onrender.com';
 
   const onToken = tokenNew => {
@@ -43,40 +45,10 @@ function App() {
     setActivities( activitiesNew );
     
   };
-/*
-    useEffect( () => {
-      if( token !== null ){
-        console.log( 'tnnt')
-      const config = {
-          headers : {
-              'api-token' : localStorage.getItem( 'token' )
-          }
-      };
-      const userName = JSON.parse( localStorage.getItem( 'user' ) ).userName;
-      axios.get( `http://localhost:8000/api/users/${userName}`, config )
-          .then( res => {
-              setTasks( res.data.tasks );
-          })
-          .catch( err => {})
-        }
-    }, [token]);
-
-    useEffect( () => {
-      if( token !== null ){
-      const config = {
-          headers : {
-              'api-token' : localStorage.getItem( 'token' )
-          }
-      };
-      const userName = JSON.parse( localStorage.getItem( 'user' ) ).userName;
-      axios.get( `http://localhost:8000/api/users/${userName}`, config )
-          .then( res => {
-              setActivities( res.data.activities );
-          })
-          .catch( err => {})
-        }
-    }, [token]);
-  */
+  
+  const onSelectLan = newSelect => {
+    setSelectLan( newSelect );
+  };
 
   return (
     <div className="App">
@@ -85,7 +57,7 @@ function App() {
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"></link>
       
       <BrowserRouter>
-        <Header token={token} tasks={tasks} activities={activities}/>
+        <Header token={token} tasks={tasks} activities={activities} selectLan={selectLan} onSelectLan={onSelectLan}/>
         {token === null ? <></> : <Left onToken={onToken}/>}
         {token === null ? <></> : <Right/>}
         <Switch>
@@ -107,6 +79,7 @@ function App() {
           <Route exact path="/about-us" render={ routeProps => <AboutUs {...routeProps} />}/>
           <Route exact path="/community" render={ routeProps => <Community url={url} {...routeProps} />}/>
           <Route exact path="/statistics" render={ routeProps => <Statistics {...routeProps} />}/>
+          <Route exact path="/settings" render={ routeProps => <Settings {...routeProps}/>}/>
         </Switch>
         <Footer/>
       </BrowserRouter>

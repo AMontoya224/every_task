@@ -36,10 +36,10 @@ function Login( props ){
     return (
         <div className='login'>
             <h1>
-                Login to your account
+                Ingrese a su cuenta
             </h1>
             <p>
-                Are you new to this site? <Link to='/register' className='link'>Register</Link>
+                ¿Eres nuevo en este sitio? <Link to='/register' className='link'>Registrarse</Link>
             </p>
             <Form3 onSubmitProp={onSubmitLogin} serverValidation={serverLogin} onClose={onSubmitClose}/>
         </div>

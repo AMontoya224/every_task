@@ -1,11 +1,10 @@
 .user-profile{
-    width: 85%;
     min-height: 64vh;
     margin: auto;
 }
 
 .user-picture > img{
-    width: 500px;
+    width: 50rem;
     border-radius: 50%;
     margin-right: 1rem;
     opacity: 1;
@@ -16,22 +15,53 @@
     opacity: 0.8;
 }
 
-.user-container{
+.p-user-container{
     color: var(--color-letter);
     background: var(--color-background);
     box-shadow: 0.2rem 0.2rem 0.5rem 0.1rem var(--color-table);
-    margin: 2rem 0.5rem;
+    margin: 2rem;
     border-radius: 5px;
     padding: 1rem 2rem;
     font-size: 1.2rem;
     opacity: 1;
 }
-.user-container:hover{
+.p-user-container:hover{
     opacity: 0.8;
 }
 
-.user-container > h3{
+.p-user-container > h3{
     color: var(--color-primary);
     margin: 10px;
     font-weight: 500;
+}
+
+
+@media only screen and (max-width: 960px){
+    .user-profile{
+        min-height: 64vh;
+        margin: 15rem 5rem;
+    }
+    
+    .user-profile > .row{
+        flex-direction: column;
+    }
+
+    .user-picture > img{
+        width: 25rem;
+        margin: 2rem auto;
+    }
+    
+    .p-user-container{
+        margin: 2rem auto;
+        padding: 1rem;
+        width: 90%;
+    }
+    
+    .p-user-container > h3{
+        font-size: 2rem;
+    }
+
+    .p-user-container > p{
+        font-size: 1rem;
+    }
 }

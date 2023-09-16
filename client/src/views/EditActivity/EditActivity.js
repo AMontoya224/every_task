@@ -44,7 +44,7 @@ function EditActivity( props ){
     return (
         <div className='editTask'>
             <h1>
-                Edit activity
+                Editar actividad
             </h1>
             {(activity.title) && <Form_5 onSubmitProp={onUpdateActivity} serverValidation={serverActivity} initialTitle={activity.title} 
                                          initialDate={activity.date} initialContents={activity.contents}/>}

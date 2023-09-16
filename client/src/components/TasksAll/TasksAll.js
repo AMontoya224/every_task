@@ -61,7 +61,7 @@ function TasksAll( props ){
         <div className='tasksAll'>
             {tasks.length === 0 ? 
                 <div>
-                    <p className='message-buttom'>Start the day writing tasks that you have to do, good luck!</p>
+                    <p className='message-buttom'>Empieza el día escribiendo las tareas que tienes que hacer, ¡mucha suerte!</p>
                     <Link to='/addTask' className='tasksAll-buttom'><span className="material-icons-round">add</span></Link>
                 </div> 
             : 

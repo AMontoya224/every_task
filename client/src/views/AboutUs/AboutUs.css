@@ -1,4 +1,12 @@
 .aboutus{
-    padding-top: 15rem;
+    margin-top: 15rem;
     min-height: 64vh;
+}
+
+
+@media only screen and (max-width: 960px){
+    .aboutus{
+        min-height: 64vh;
+        margin: 15rem 5rem;
+    }
 }

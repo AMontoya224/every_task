@@ -13,13 +13,13 @@ function Form4( props ){
     const handleTitle = e => {
         setTitle( e.target.value );
         ( e.target.value.length === 0 || e.target.value.length >= 3 ) ? setTitleError( ' ' ) :
-                             setTitleError( 'Title must be at least 3 characters long.' );
+                             setTitleError( 'El título debe tener al menos 3 caracteres.' );
     };
 
     const handleContents = e => {
         setContents( e.target.value );
         ( e.target.value.length === 0 || e.target.value.length >= 5 ) ? setContentsError( ' ' ) :
-                          setContentsError( 'Task content must be at least 3 characters long.' );
+                          setContentsError( 'El contenido de la tarea debe tener al menos 3 caracteres.' );
     };
 
     const onSubmitHandler = e => {
@@ -34,7 +34,7 @@ function Form4( props ){
                     <label htmlFor='title' className='inp'>
                         <input type='text' id='title' className='inp-input' placeholder=' ' value={title} 
                             onChange={handleTitle}/>
-                        <span className='inp-label'>Task title</span>
+                        <span className='inp-label'>Título de la tarea</span>
                         <span className='inp-focus'></span>
                         <p className='inp-error'>{titleError}</p>
                     </label>
@@ -43,7 +43,7 @@ function Form4( props ){
                     <label htmlFor='contents' className='inp'>
                         <input type='text' id='contents' className='inp-input' placeholder=' ' value={contents} 
                             onChange={handleContents}/>
-                        <span className='inp-label'>Task content</span>
+                        <span className='inp-label'>Contenido</span>
                         <span className='inp-focus'></span>
                         <p className='inp-error'>{contentsError}</p>
                     </label>
@@ -55,7 +55,7 @@ function Form4( props ){
                                 contentsError.length > 1 ) ? 'reset' : 'submit'}
                         className={( title.length < 1 || contents.length < 1 || titleError.length > 1 || 
                                 contentsError.length > 1 ) ? 'submit not-submit' : 'submit'}>
-                        Add
+                        Añadir
                 </button>
             </div>
         </form>

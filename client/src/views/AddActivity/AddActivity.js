@@ -36,7 +36,7 @@ function AddActivity( props ){
     return (
         <div className='addActivity'>
             <h1>
-                Add to new Activity
+                Agregar una nueva actividad
             </h1>
             <Form5 onSubmitProp={onSubmitActivity} serverValidation={serverActivity} initialTitle={''} initialDate={''} initialContents={''}/>
         </div>

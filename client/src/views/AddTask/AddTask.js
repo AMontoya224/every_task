@@ -35,7 +35,7 @@ function AddTask( props ){
     return (
         <div className='addTask'>
             <h1>
-                Add to new task
+                Agregar una nueva tarea
             </h1>
             <Form4 onSubmitProp={onSubmitTask} serverValidation={serverTask} initialTitle={''} initialContents={''}/>
         </div>

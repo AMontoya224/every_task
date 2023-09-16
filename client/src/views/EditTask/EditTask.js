@@ -44,7 +44,7 @@ function EditTask( props ){
     return (
         <div className='editTask'>
             <h1>
-                Edit task
+                Editar tarea
             </h1>
             {(task.title) && <Form4 onSubmitProp={onUpdateTask} serverValidation={serverTask} 
                                      initialTitle={task.title} initialContents={task.contents}/>}

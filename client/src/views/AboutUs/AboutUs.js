@@ -6,20 +6,20 @@ function AboutUs( ){
     return (
         <div className='aboutus'>
             <h1>
-                Welcome to evertask!
+                ¡Bienvenido a evertask!
             </h1>
             <p>
-                EverTask is an independent project that was born from the idea of being able to create an application 
-                where people can write down the tasks they have to do in the day and also be able to perform 
-                long-term tasks.
+                EverTask es un proyecto independiente que nace de la idea de poder crear una aplicación 
+                donde las personas pueden anotar las tareas que tienen que hacer en el día y también poder realizar
+                tareas de largo plazo.
             </p>
             <p>
-                To be able to use this application, all you have to do is register and look for the verification 
-                code in your email, enter it and you will be able to have a user profile. 
+                Para poder utilizar esta aplicación lo único que tienes que hacer es registrarte y buscar la verificación 
+                código en tu email, introdúcelo y podrás tener un perfil de usuario.
             </p>
             <p>
-                To start it has been said...
-            </p>
+                Para empezar se ha dicho...
+             </p>
         </div>
     );
 };

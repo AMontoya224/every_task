@@ -35,7 +35,7 @@ function EditPicture( props ){
     return (
         <div className='editTask'>
             <h1>
-                Edit profile picture
+                Editar avatar
             </h1>
             {( JSON.parse( localStorage.getItem( 'user' ) ).picture ) && <Form2 onSubmitProp={onUpdateActivity} 
             serverValidation={serverCreateError} initialPicture={JSON.parse( localStorage.getItem( 'user' ) ).picture}/>}

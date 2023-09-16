@@ -17,13 +17,13 @@ function Form3( props ){
     const handleUserName = e => {
         setUserName( e.target.value );
         ( e.target.value.length === 0 || e.target.value.length >= 7 ) ? setUserNameError( ' ' ) :
-                         setUserNameError( 'The user name must be at least 7 characters long.' );
+                         setUserNameError( 'El nombre de usuario debe tener al menos 7 caracteres.' );
     };
 
     const handlePassword = e => {
         setPassword( e.target.value );
         ( e.target.value.length === 0 || e.target.value.length >= 8 ) ? setPasswordError( ' ' ) :
-                         setPasswordError( 'Password must have at least minumum 8 characters.' );
+                         setPasswordError( 'La contraseña debe tener al menos 8 caracteres.' );
     };
 
     const onSubmitHandler = e => {
@@ -44,7 +44,7 @@ function Form3( props ){
                         <label htmlFor='userName' className='inp'>
                             <input type='text' id='userName' className='inp-input' placeholder=' ' value={userName} 
                                 onChange={handleUserName}/>
-                            <span className='inp-label'>Enter your username</span>
+                            <span className='inp-label'>Ingrese su nombre de usuario</span>
                             <span className='inp-focus'></span>
                             <p className='inp-error'>{userNameError}</p>
                         </label>
@@ -54,7 +54,7 @@ function Form3( props ){
                             <label htmlFor='password' className='inp'>
                                 <input type={passwordShown ? 'text' : 'password'} id='password' className='inp-input' 
                                     placeholder=' ' value={password} onChange={handlePassword} />
-                                <span className='inp-label inp-label-p'>Enter your password</span>
+                                <span className='inp-label inp-label-p'>Ingresa tu contraseña</span>
                                 <span className='inp-focus'></span>
                                 <p className='inp-error'>{passwordError}</p>
                             </label>
@@ -65,7 +65,7 @@ function Form3( props ){
                                     passwordError.length > 1 ) ? 'reset' : 'submit'}
                             className={( userName.length < 1 || password.length < 1 || userNameError.length > 1 || 
                                         passwordError.length > 1 ) ? 'submit not-submit' : 'submit'}>
-                            Login
+                            Ingresar
                     </button>
                 </div>
             </form>

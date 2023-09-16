@@ -2,3 +2,11 @@
     margin: 15rem;
     min-height: 54vh;
 }
+
+
+@media only screen and (max-width: 960px){
+    .addActivity{
+        margin: 15rem 5rem;
+        min-height: 54vh;
+    }
+}

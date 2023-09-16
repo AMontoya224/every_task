@@ -22,15 +22,15 @@ function Form0( props ){
     const handleEmail = e => {
         setEmail( e.target.value );
         ( e.target.value.length >= 1 ) ? setEmailError( ' ' ) :
-                       setEmailError( 'Email is required.' );
+                       setEmailError( 'Correo electronico es requerido.' );
         ( /.+@.+\.[A-Za-z]+$/.test( e.target.value ) ) ? setEmailError( ' ' ) :
-                       setEmailError( 'Please enter a valid email.' );
+                       setEmailError( 'Por favor introduzca un correo electrónico válido.' );
     };
 
     const handleConfirm = e => {
         setConfirm( e.target.value );
         ( e.target.value === email ) ? setConfirmError( ' ' ) :
-                     setConfirmError( 'Emails must be the same.' );
+                     setConfirmError( 'Los correos electrónicos deben ser los mismos.' );
     };
 
     const handleCountry = e => {
@@ -64,7 +64,7 @@ function Form0( props ){
                         <label htmlFor='email' className='inp'>
                             <input type='text' id='email' className='inp-input' placeholder=' ' value={email} 
                                 onChange={handleEmail}/>
-                            <span className='inp-label'>Email address</span>
+                            <span className='inp-label'>Correo electrónico</span>
                             <span className='inp-focus'></span>
                             <p className='inp-error'>{emailError}</p>
                         </label>
@@ -73,29 +73,29 @@ function Form0( props ){
                         <label htmlFor='confirm' className='inp'>
                             <input type='text' id='confirm' className='inp-input' placeholder=' ' value={confirm} 
                                 onChange={handleConfirm}/>
-                            <span className='inp-label'>Confirm email address</span>
+                            <span className='inp-label'>Confirmar correo electrónico</span>
                             <span className='inp-focus'></span>
                             <p className='inp-error'>{confirmError}</p>
                         </label>
                     </div>
                     <div className='select-container'>
                         <select defaultValue={'-- Select a country --'} onChange={handleCountry}>
-                            <option hidden>-- Select a country --</option>
+                            <option hidden>-- Seleccionar un país --</option>
                             {options.map( ( country, idx ) => <option key={idx}>{country.label}</option> )}
                         </select>
                     </div>
                     <div className='row'>
                         <span className='material-icons-outlined' onClick={toggleCheck}>{checkShown ? 'check_box' : 'check_box_outline_blank'}</span>
                         <p>
-                            I am 13 years old or older and I accept the <a href='/' target='_blank' className='link'>terms and conditions</a> 
-                            and the <a href='/' target='_blank' className='link'>privacy policy</a>
+                            Tengo 13 años o más y acepto el <a href='/' target='_blank' className='link'>Términos y condiciones</a> 
+                            y la <a href='/' target='_blank' className='link'>política de privacidad</a>
                         </p>
                     </div>
                     <button type={( email.length < 1 || confirm.length < 1 || country.length < 1 || emailError.length > 1 || 
                                     confirmError.length > 1 || !checkShown ) ? 'reset' : 'submit'}
                     className={( email.length < 1 || confirm.length < 1 || country.length < 1 || emailError.length > 1 || 
                                     confirmError.length > 1 || !checkShown ) ? 'submit not-submit' : 'submit'}>
-                            Continue
+                            Continuar
                     </button>
                 </div>
             </form>
@@ -107,25 +107,25 @@ function Form0( props ){
                         <form onSubmit={onSubmitValidation} className='col'>
                             <div className='title-server'>
                                 <h1>
-                                    Hi!
+                                    ¡Hola!
                                 </h1>
                                 <button className='close-server' onClick={onSubmitClose}><span className="material-icons-round">remove_circle</span></button>
                             </div>
                             <p>
-                                As an additional security measure, you will have to confirm the email address, 
-                                for this we have sent you a security code to the email address entered.
+                                Como medida de seguridad adicional tendrás que confirmar la dirección de correo electrónico, 
+                                para ello te hemos enviado un código de seguridad a la dirección de correo electrónico introducida.
                             </p>
                             <div className='inp-container'>
                                 <label htmlFor='codeForm' className='inp'>
                                     <input type='text' id='codeForm' className='inp-input' placeholder=' ' value={codeForm} 
                                         onChange={handleCodeForm}/>
-                                    <span className='inp-label'>Enter your code here</span>
+                                    <span className='inp-label'>Introduce tu código aquí</span>
                                     <span className='inp-focus'></span>
                                 </label>
                             </div>
                             <button type={( codeForm.length < 8 ) ? 'reset' : 'submit'}
                                     className={( codeForm.length < 8 ) ? 'submit not-submit' : 'submit'}>
-                                Send
+                                Enviar
                             </button>
                         </form>
                     </div>
@@ -136,24 +136,24 @@ function Form0( props ){
                         <form onSubmit={onSubmitValidation}>
                             <div className='title-server'>
                                 <h1>
-                                    Ups!
+                                    ¡Ups!
                                 </h1>
                                 <button className='close-server' onClick={onSubmitClose}><span className="material-icons-round">remove_circle</span></button>
                             </div>
                             <p>
-                                We are sorry but the entered code is not correct.
+                                Lo sentimos pero el código introducido no es correcto.
                             </p>
                             <div className='inp-container'>
                                 <label htmlFor='codeForm' className='inp'>
                                     <input type='text' id='codeForm' className='inp-input' placeholder=' ' value={codeForm} 
                                         onChange={handleCodeForm}/>
-                                    <span className='inp-label'>Enter your code here</span>
+                                    <span className='inp-label'>Introduce tu código aquí</span>
                                     <span className='inp-focus'></span>
                                 </label>
                             </div>
                             <button type={( codeForm.length < 8 ) ? 'reset' : 'submit'}
                                     className={( codeForm.length < 8 ) ? 'submit not-submit' : 'submit'}>
-                                Send again
+                                Enviar de nuevo
                             </button>
                         </form>
                     </div>

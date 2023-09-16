@@ -69,3 +69,19 @@
     opacity: .8;
     font-size: 1.2rem;
 }
+
+
+@media only screen and (max-width: 960px){
+    .activity{
+        padding: 2rem;
+        margin: 2rem;
+    }
+    
+    .activity > div > div > a > h3{
+        font-size: 2rem;
+    }
+
+    .activity > div > div > p{
+        font-size: 1.5rem;
+    }
+}

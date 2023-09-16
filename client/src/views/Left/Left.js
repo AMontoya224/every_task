@@ -24,35 +24,35 @@ function Left( props ){
                 <div className="sidebar">
                     <Link to='/home' onClick={() => handleBoxToggle( 0 )} className={( activeLeft === 0 ) ? 'active' : 'deactivated'}>
                         <span className="material-icons-round">home</span>
-                        <h3>Home</h3>
+                        <h3>Inicio</h3>
                     </Link>
                     <Link to='/tasks' onClick={() => handleBoxToggle( 1 )} className={( activeLeft === 1 ) ? 'active' : 'deactivated'}>
                         <span className="material-icons-round">task_alt</span>
-                        <h3>Daily tasks</h3>
+                        <h3>Tareas diarias</h3>
                     </Link>
                     <Link to='/activities' onClick={() => handleBoxToggle( 2 )} className={( activeLeft === 2 ) ? 'active' : 'deactivated'}>
                         <span className="material-icons-round">storage</span>
-                        <h3>Activities</h3>
+                        <h3>Actividades</h3>
                     </Link>
                     <Link to='/statistics' onClick={() => handleBoxToggle( 3 )} className={( activeLeft === 3 ) ? 'active' : 'deactivated'}>
                         <span className="material-icons-round">query_stats</span>
-                        <h3>Statistics</h3>
+                        <h3>Estadísticas</h3>
                     </Link>
                     <Link to='/community' onClick={() => handleBoxToggle( 4 )} className={( activeLeft === 4 ) ? 'active' : 'deactivated'}>
                         <span className="material-icons-round">public</span>
-                        <h3>Community</h3>
+                        <h3>Comunidad</h3>
                     </Link>
                     <Link to='/about-us' onClick={() => handleBoxToggle( 5 )} className={( activeLeft === 5 ) ? 'active' : 'deactivated'}>
                         <span className="material-icons-round">diversity_3</span>
-                        <h3 >About us</h3>
+                        <h3 >Sobre nosotros</h3>
                     </Link>
                     <Link to='/settings' onClick={() => handleBoxToggle( 6 )} className={( activeLeft === 6 ) ? 'active' : 'deactivated'}>
                         <span className="material-icons-round">settings</span>
-                        <h3>Settings</h3>
+                        <h3>Configuración</h3>
                     </Link>
                     <Link to='/' onClick={onLogout} className='deactivated'>
                         <span className="material-icons-round">logout</span>
-                        <h3>Logout</h3>
+                        <h3>Cerrar sesión</h3>
                     </Link>
                 </div>
             </aside>

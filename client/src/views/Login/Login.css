@@ -20,3 +20,14 @@
 .link:hover{
     color: var(--color-primary-variant);
 }
+
+
+@media only screen and (max-width: 960px){
+    .login{
+        width: 90%;
+    }
+    
+    .login > h1{
+        font-size: 3rem;
+    }
+}

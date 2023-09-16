@@ -56,6 +56,19 @@
     color: var(--color-primary);
 }
 
-.information > .two > div > p{
-    font-size: 1.8rem;
+
+@media only screen and (max-width: 960px){
+    .information > section > div{
+        width: 90%;
+    }
+
+    .information > section > div > div{
+        font-size: 1rem;
+    }
+
+    .information > .two > div{
+        width: 90%;
+        height: 70%;
+        margin: 0 auto;
+    }
 }
