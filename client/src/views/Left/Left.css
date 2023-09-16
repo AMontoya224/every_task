@@ -38,7 +38,7 @@ aside > .sidebar > a{
     display: flex;
     color: var(--color-info-dark);
     margin-left: 2rem;
-    gap: 1rem;
+    gap: 2rem;
     align-items: center;
     position: relative;
     height: 3.7rem;
